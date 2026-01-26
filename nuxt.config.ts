@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
 
-  ssr: true, // Enable SSR for proper static generation with CSS
+  ssr: false, // Disable SSR for GitHub Pages static generation
 
   modules: ["@nuxtjs/tailwindcss", "@nuxt/eslint", "@nuxt/fonts"],
 
@@ -29,8 +29,6 @@ export default defineNuxtConfig({
 
   app: {
     baseURL: process.env.NUXT_APP_BASE_URL || "/",
-    buildAssetsDir: "/_nuxt/",
-    cdnURL: process.env.NUXT_APP_BASE_URL || "/",
     head: {
       htmlAttrs: {
         lang: "de",
