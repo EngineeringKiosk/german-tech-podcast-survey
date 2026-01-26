@@ -7,6 +7,11 @@ export default defineNuxtConfig({
 
   modules: ["@nuxtjs/tailwindcss", "@nuxt/eslint", "@nuxt/fonts"],
 
+  tailwindcss: {
+    cssPath: "~/assets/css/main.css",
+    injectPosition: "first",
+  },
+
   app: {
     baseURL: process.env.NUXT_APP_BASE_URL || "/",
     head: {
