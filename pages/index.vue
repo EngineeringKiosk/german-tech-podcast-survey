@@ -1377,6 +1377,949 @@
             </div>
           </fieldset>
         </section>
+
+        <!-- Question 20: Q18 - Rating Frequency -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              20. Wie oft bewertest du Podcasts?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q19-nie"
+                  v-model="answers.q19"
+                  type="radio"
+                  value="Nie"
+                  name="q19"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q19-nie" class="ml-3 text-gray-700">
+                  Nie
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q19-selten"
+                  v-model="answers.q19"
+                  type="radio"
+                  value="Selten bis Gelegentlich"
+                  name="q19"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q19-selten" class="ml-3 text-gray-700">
+                  Selten bis Gelegentlich
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q19-regelmaessig"
+                  v-model="answers.q19"
+                  type="radio"
+                  value="Regelmäßig"
+                  name="q19"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q19-regelmaessig" class="ml-3 text-gray-700">
+                  Regelmäßig
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 21: Q18A - Rating Reasons (Conditional) -->
+        <section v-if="answers.q19 !== 'Nie'" class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-2">
+              21. Was veranlasst dich zu einer Bewertung des Podcasts?
+            </legend>
+            <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q19a-begeistert"
+                  v-model="answers.q19a"
+                  type="checkbox"
+                  value="Ich war begeistert / enttäuscht von einer bestimmten Episode"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q19a-begeistert" class="ml-3 text-gray-700">
+                  Ich war begeistert / enttäuscht von einer bestimmten Episode
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q19a-unterstuetzen"
+                  v-model="answers.q19a"
+                  type="checkbox"
+                  value="Ich höre den Podcast regelmäßig und möchte ihn unterstützen"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q19a-unterstuetzen" class="ml-3 text-gray-700">
+                  Ich höre den Podcast regelmäßig und möchte ihn unterstützen
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q19a-aufgerufen"
+                  v-model="answers.q19a"
+                  type="checkbox"
+                  value="Die Moderator*innen haben aktiv dazu aufgerufen"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q19a-aufgerufen" class="ml-3 text-gray-700">
+                  Die Moderator*innen haben aktiv dazu aufgerufen
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q19a-eindruck"
+                  v-model="answers.q19a"
+                  type="checkbox"
+                  value="Ich hatte einen besonders positiven / negativen Gesamteindruck"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q19a-eindruck" class="ml-3 text-gray-700">
+                  Ich hatte einen besonders positiven / negativen Gesamteindruck
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q19a-meinung"
+                  v-model="answers.q19a"
+                  type="checkbox"
+                  value="Ich möchte meine Meinung mit anderen teilen"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q19a-meinung" class="ml-3 text-gray-700">
+                  Ich möchte meine Meinung mit anderen teilen
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q19a-feedback"
+                  v-model="answers.q19a"
+                  type="checkbox"
+                  value="Ich möchte konstruktives Feedback geben"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q19a-feedback" class="ml-3 text-gray-700">
+                  Ich möchte konstruktives Feedback geben
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q19a-socialmedia"
+                  v-model="answers.q19a"
+                  type="checkbox"
+                  value="Ich wurde auf Social Media oder im Newsletter daran erinnert"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q19a-socialmedia" class="ml-3 text-gray-700">
+                  Ich wurde auf Social Media oder im Newsletter daran erinnert
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q19a-persoenlich"
+                  v-model="answers.q19a"
+                  type="checkbox"
+                  value="Ich kenne die Macher*innen persönlich / aus der Community"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q19a-persoenlich" class="ml-3 text-gray-700">
+                  Ich kenne die Macher*innen persönlich / aus der Community
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 22: Q19 - Release Rhythm -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              22. In welchem Rhythmus sollten neue Folgen eines Podcasts für dich erscheinen?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q20-mehrmals"
+                  v-model="answers.q20"
+                  type="radio"
+                  value="Mehrmals pro Woche"
+                  name="q20"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q20-mehrmals" class="ml-3 text-gray-700">
+                  Mehrmals pro Woche
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q20-woechentlich"
+                  v-model="answers.q20"
+                  type="radio"
+                  value="Wöchentlich"
+                  name="q20"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q20-woechentlich" class="ml-3 text-gray-700">
+                  Wöchentlich
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q20-zweiwoche"
+                  v-model="answers.q20"
+                  type="radio"
+                  value="Alle zwei Wochen"
+                  name="q20"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q20-zweiwoche" class="ml-3 text-gray-700">
+                  Alle zwei Wochen
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q20-monatlich"
+                  v-model="answers.q20"
+                  type="radio"
+                  value="Monatlich"
+                  name="q20"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q20-monatlich" class="ml-3 text-gray-700">
+                  Monatlich
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q20-egal"
+                  v-model="answers.q20"
+                  type="radio"
+                  value="Ist mir egal"
+                  name="q20"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q20-egal" class="ml-3 text-gray-700">
+                  Ist mir egal
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 23: Q20 - Guests -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              23. Wie gern hörst du Gäste im Podcast?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q21-sehrgern"
+                  v-model="answers.q21"
+                  type="radio"
+                  value="Sehr gern, spannende Gäste sind für mich ein Highlight"
+                  name="q21"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q21-sehrgern" class="ml-3 text-gray-700">
+                  Sehr gern, spannende Gäste sind für mich ein Highlight
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q21-gern"
+                  v-model="answers.q21"
+                  type="radio"
+                  value="Gern, aber es kommt auf die Person oder das Thema an"
+                  name="q21"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q21-gern" class="ml-3 text-gray-700">
+                  Gern, aber es kommt auf die Person oder das Thema an
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q21-egal"
+                  v-model="answers.q21"
+                  type="radio"
+                  value="Ist mir egal, Hauptsache, die Folge ist gut gemacht"
+                  name="q21"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q21-egal" class="ml-3 text-gray-700">
+                  Ist mir egal, Hauptsache, die Folge ist gut gemacht
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q21-nichtsogern"
+                  v-model="answers.q21"
+                  type="radio"
+                  value="Nicht so gern, ich mag es lieber, wenn Hosts unter sich bleiben"
+                  name="q21"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q21-nichtsogern" class="ml-3 text-gray-700">
+                  Nicht so gern, ich mag es lieber, wenn Hosts unter sich bleiben
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q21-garnicht"
+                  v-model="answers.q21"
+                  type="radio"
+                  value="Gar nicht, ich finde Gäste eher störend"
+                  name="q21"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q21-garnicht" class="ml-3 text-gray-700">
+                  Gar nicht, ich finde Gäste eher störend
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 24: Q22 - Audio vs Video -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              24. Magst du Podcasts lieber als reines Audio oder dürfen sie auch mit Video sein?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q22-audio"
+                  v-model="answers.q22"
+                  type="radio"
+                  value="Ich bevorzuge reine Audio-Podcasts"
+                  name="q22"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q22-audio" class="ml-3 text-gray-700">
+                  Ich bevorzuge reine Audio-Podcasts
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q22-video"
+                  v-model="answers.q22"
+                  type="radio"
+                  value="Ich schaue Podcasts lieber als Video"
+                  name="q22"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q22-video" class="ml-3 text-gray-700">
+                  Ich schaue Podcasts lieber als Video
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q22-egal"
+                  v-model="answers.q22"
+                  type="radio"
+                  value="Ist mir egal"
+                  name="q22"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q22-egal" class="ml-3 text-gray-700">
+                  Ist mir egal
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 25: Q23 - Intro -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              25. Wie hilfreich findest du ein Intro am Anfang, das sagt, worum es in der Folge geht?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q23-hilfreich"
+                  v-model="answers.q23"
+                  type="radio"
+                  value="Hilfreich – so weiß ich gleich, worauf ich mich einlasse"
+                  name="q23"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q23-hilfreich" class="ml-3 text-gray-700">
+                  Hilfreich – so weiß ich gleich, worauf ich mich einlasse
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q23-neutral"
+                  v-model="answers.q23"
+                  type="radio"
+                  value="Neutral – ist mir nicht so wichtig"
+                  name="q23"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q23-neutral" class="ml-3 text-gray-700">
+                  Neutral – ist mir nicht so wichtig
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q23-nichthilfreich"
+                  v-model="answers.q23"
+                  type="radio"
+                  value="Nicht hilfreich – ich skippe Intros, breche die Episode ab oder höre das Intro nur unter Protest"
+                  name="q23"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q23-nichthilfreich" class="ml-3 text-gray-700">
+                  Nicht hilfreich – ich skippe Intros, breche die Episode ab oder höre das Intro nur unter Protest
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 26: Q24 - Outro/Summary -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              26. Wie wichtig ist dir ein Fazit oder eine Zusammenfassung am Ende einer Folge?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q24-wichtig"
+                  v-model="answers.q24"
+                  type="radio"
+                  value="Wichtig – finde ich nützlich und hilfreich"
+                  name="q24"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q24-wichtig" class="ml-3 text-gray-700">
+                  Wichtig – finde ich nützlich und hilfreich
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q24-egal"
+                  v-model="answers.q24"
+                  type="radio"
+                  value="Ist mir egal"
+                  name="q24"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q24-egal" class="ml-3 text-gray-700">
+                  Ist mir egal
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q24-weglassen"
+                  v-model="answers.q24"
+                  type="radio"
+                  value="Lieber weglassen, ist für mich überflüssig"
+                  name="q24"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q24-weglassen" class="ml-3 text-gray-700">
+                  Lieber weglassen, ist für mich überflüssig
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 27: Q25 - Community -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              27. Tauschst du dich mit anderen Hörer*innen über Episoden aus – z. B. in Foren, Kommentarbereichen oder einer Community des Podcasts?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q25-regelmaessig"
+                  v-model="answers.q25"
+                  type="radio"
+                  value="Ja, regelmäßig"
+                  name="q25"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q25-regelmaessig" class="ml-3 text-gray-700">
+                  Ja, regelmäßig
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q25-schonmal"
+                  v-model="answers.q25"
+                  type="radio"
+                  value="Schon mal gemacht, aber nicht regelmäßig"
+                  name="q25"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q25-schonmal" class="ml-3 text-gray-700">
+                  Schon mal gemacht, aber nicht regelmäßig
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q25-nein"
+                  v-model="answers.q25"
+                  type="radio"
+                  value="Nein"
+                  name="q25"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q25-nein" class="ml-3 text-gray-700">
+                  Nein
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q25-nichtwusste"
+                  v-model="answers.q25"
+                  type="radio"
+                  value="Ich wusste nicht, dass es solche Möglichkeiten gibt"
+                  name="q25"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q25-nichtwusste" class="ml-3 text-gray-700">
+                  Ich wusste nicht, dass es solche Möglichkeiten gibt
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 28: Q26 - Diversity -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              28. Wie wichtig ist es dir, dass in einem Podcast ganz unterschiedliche Personen vorkommen – z. B. Menschen unterschiedlichen Geschlechts, verschiedener Herkunft oder mit unterschiedlichen gesellschaftlichen und beruflichen Hintergründen?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q26-sehrwichtig"
+                  v-model="answers.q26"
+                  type="radio"
+                  value="Sehr wichtig – ich achte aktiv darauf und finde es bereichernd"
+                  name="q26"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q26-sehrwichtig" class="ml-3 text-gray-700">
+                  Sehr wichtig – ich achte aktiv darauf und finde es bereichernd
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q26-schoen"
+                  v-model="answers.q26"
+                  type="radio"
+                  value="Schön, wenn's passiert – aber kein Muss für mich"
+                  name="q26"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q26-schoen" class="ml-3 text-gray-700">
+                  Schön, wenn's passiert – aber kein Muss für mich
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q26-nichtwichtig"
+                  v-model="answers.q26"
+                  type="radio"
+                  value="Ist mir nicht so wichtig, ich achte mehr auf die Inhalte"
+                  name="q26"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q26-nichtwichtig" class="ml-3 text-gray-700">
+                  Ist mir nicht so wichtig, ich achte mehr auf die Inhalte
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 29: Q27 - Evolution -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              29. Wie findest du es, wenn sich ein Podcast weiterentwickelt – z. B. durch neue Formate, veränderte Struktur oder kreative Experimente?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q27-super"
+                  v-model="answers.q27"
+                  type="radio"
+                  value="Finde ich super – Abwechslung hält den Podcast lebendig"
+                  name="q27"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q27-super" class="ml-3 text-gray-700">
+                  Finde ich super – Abwechslung hält den Podcast lebendig
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q27-neutral"
+                  v-model="answers.q27"
+                  type="radio"
+                  value="Neutral / Kommt drauf an – solange die Inhalte und Qualität stimmen"
+                  name="q27"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q27-neutral" class="ml-3 text-gray-700">
+                  Neutral / Kommt drauf an – solange die Inhalte und Qualität stimmen
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q27-verlaesslichkeit"
+                  v-model="answers.q27"
+                  type="radio"
+                  value="Ich mag lieber Verlässlichkeit – bitte keine allzu großen Änderungen"
+                  name="q27"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q27-verlaesslichkeit" class="ml-3 text-gray-700">
+                  Ich mag lieber Verlässlichkeit – bitte keine allzu großen Änderungen
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 30: Q28 - Co-determination -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              30. Ist es dir wichtig, die Themen des Podcasts mitbestimmen zu können – z. B. indem du Vorschläge oder Anregungen einbringen kannst?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q28-ja"
+                  v-model="answers.q28"
+                  type="radio"
+                  value="Ja, das finde ich gut – ich habe gern die Möglichkeit zur Mitwirkung"
+                  name="q28"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q28-ja" class="ml-3 text-gray-700">
+                  Ja, das finde ich gut – ich habe gern die Möglichkeit zur Mitwirkung
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q28-nett"
+                  v-model="answers.q28"
+                  type="radio"
+                  value="Kann nett sein – aber ich nutze solche Angebote eher selten"
+                  name="q28"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q28-nett" class="ml-3 text-gray-700">
+                  Kann nett sein – aber ich nutze solche Angebote eher selten
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q28-nein"
+                  v-model="answers.q28"
+                  type="radio"
+                  value="Nein, das ist mir nicht wichtig"
+                  name="q28"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q28-nein" class="ml-3 text-gray-700">
+                  Nein, das ist mir nicht wichtig
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 31: Q28A - Feedback Channels (Conditional) -->
+        <section v-if="answers.q28 === 'Ja, das finde ich gut – ich habe gern die Möglichkeit zur Mitwirkung'" class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-2">
+              31. Wenn du Themen oder Ideen einbringen willst – was wäre für dich die beste Möglichkeit, das zu tun?
+            </legend>
+            <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q28a-community"
+                  v-model="answers.q28a"
+                  type="checkbox"
+                  value="In einer Community-Plattform (z. B. Discord, Mastodon, ...)"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q28a-community" class="ml-3 text-gray-700">
+                  In einer Community-Plattform (z. B. Discord, Mastodon, ...)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q28a-email"
+                  v-model="answers.q28a"
+                  type="checkbox"
+                  value="Über direkte Rückmeldung (z. B. E-Mail)"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q28a-email" class="ml-3 text-gray-700">
+                  Über direkte Rückmeldung (z. B. E-Mail)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q28a-socialmedia"
+                  v-model="answers.q28a"
+                  type="checkbox"
+                  value="Über Social Media (LinkedIn, Instagram, Facebook)"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q28a-socialmedia" class="ml-3 text-gray-700">
+                  Über Social Media (LinkedIn, Instagram, Facebook)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q28a-kommentar"
+                  v-model="answers.q28a"
+                  type="checkbox"
+                  value="In einem Kommentarbereich (z. B. unter der Folge)"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q28a-kommentar" class="ml-3 text-gray-700">
+                  In einem Kommentarbereich (z. B. unter der Folge)
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 32: Q29 - Discovery Channels -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-2">
+              32. Wie bist du auf die Podcasts aufmerksam geworden, die du regelmäßig hörst?
+            </legend>
+            <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q29-app"
+                  v-model="answers.q29"
+                  type="checkbox"
+                  value="Über die Suche oder Empfehlungen in meiner Podcast-App"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q29-app" class="ml-3 text-gray-700">
+                  Über die Suche oder Empfehlungen in meiner Podcast-App
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q29-freunde"
+                  v-model="answers.q29"
+                  type="checkbox"
+                  value="Durch Freund*innen oder Bekannte"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q29-freunde" class="ml-3 text-gray-700">
+                  Durch Freund*innen oder Bekannte
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q29-kollegen"
+                  v-model="answers.q29"
+                  type="checkbox"
+                  value="Durch Kolleg*innen oder im beruflichen Umfeld"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q29-kollegen" class="ml-3 text-gray-700">
+                  Durch Kolleg*innen oder im beruflichen Umfeld
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q29-socialmedia"
+                  v-model="answers.q29"
+                  type="checkbox"
+                  value="Über Social Media"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q29-socialmedia" class="ml-3 text-gray-700">
+                  Über Social Media
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q29-werbung"
+                  v-model="answers.q29"
+                  type="checkbox"
+                  value="Über Werbung / Erwähnung in anderen Podcasts"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q29-werbung" class="ml-3 text-gray-700">
+                  Über Werbung / Erwähnung in anderen Podcasts
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q29-suchmaschine"
+                  v-model="answers.q29"
+                  type="checkbox"
+                  value="Über eine Suchmaschine"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q29-suchmaschine" class="ml-3 text-gray-700">
+                  Über eine Suchmaschine
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q29-newsletter"
+                  v-model="answers.q29"
+                  type="checkbox"
+                  value="Durch einen Newsletter, Blog oder Videoplattform"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q29-newsletter" class="ml-3 text-gray-700">
+                  Durch einen Newsletter, Blog oder Videoplattform
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q29-medienbericht"
+                  v-model="answers.q29"
+                  type="checkbox"
+                  value="Durch einen Medienbericht oder Artikel"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q29-medienbericht" class="ml-3 text-gray-700">
+                  Durch einen Medienbericht oder Artikel
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q29-kannte"
+                  v-model="answers.q29"
+                  type="checkbox"
+                  value="Ich kannte die Person(en), die den Podcast machen"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q29-kannte" class="ml-3 text-gray-700">
+                  Ich kannte die Person(en), die den Podcast machen
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q29-zufaellig"
+                  v-model="answers.q29"
+                  type="checkbox"
+                  value="Zufällig beim Stöbern / Scrollen"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q29-zufaellig" class="ml-3 text-gray-700">
+                  Zufällig beim Stöbern / Scrollen
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q29-weissnicht"
+                  v-model="answers.q29"
+                  type="checkbox"
+                  value="Ich weiß es nicht mehr"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q29-weissnicht" class="ml-3 text-gray-700">
+                  Ich weiß es nicht mehr
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 33: Q30 - Niche vs Broad -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              33. Magst du lieber Nischen-Podcasts oder eher solche, die thematisch breit aufgestellt sind?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q30-nische"
+                  v-model="answers.q30"
+                  type="radio"
+                  value="Ich mag eher Nischenformate, die sich intensiv mit einem klaren Thema beschäftigen"
+                  name="q30"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q30-nische" class="ml-3 text-gray-700">
+                  Ich mag eher Nischenformate, die sich intensiv mit einem klaren Thema beschäftigen
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q30-breit"
+                  v-model="answers.q30"
+                  type="radio"
+                  value="Ich finde eher ein breites, abwechslungsreiches Themenfeld spannender"
+                  name="q30"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q30-breit" class="ml-3 text-gray-700">
+                  Ich finde eher ein breites, abwechslungsreiches Themenfeld spannender
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q30-beides"
+                  v-model="answers.q30"
+                  type="radio"
+                  value="Beides"
+                  name="q30"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q30-beides" class="ml-3 text-gray-700">
+                  Beides
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 34: Q31 - Final Feedback -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <div>
+            <label for="q31" class="block text-xl font-semibold text-gray-900 mb-4">
+              34. Gibt es noch etwas, das du uns sagen möchtest? Hast du Feedback zu Podcasts, die du besonders magst (oder nicht)? Möchtest du Lob, Kritik oder Themenwünsche loswerden?
+            </label>
+            <textarea
+              id="q31"
+              v-model="answers.q31"
+              rows="6"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              placeholder="Deine Antwort..."
+            ></textarea>
+          </div>
+        </section>
         
         <!-- Submit Section -->
         <div class="bg-white shadow-sm rounded-lg p-6">
