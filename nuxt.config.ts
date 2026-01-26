@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
 
-  ssr: false, // SPA mode for client-side state management
+  ssr: true, // Enable SSR for proper static generation with CSS
 
   modules: ["@nuxtjs/tailwindcss", "@nuxt/eslint", "@nuxt/fonts"],
 
