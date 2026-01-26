@@ -1,8 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-const isGithubPages =
-  process.env.GITHUB_PAGES === "true" || process.env.GITHUB_ACTIONS === "true";
+// In production (including GitHub Pages), serve the app from the repo subfolder.
 const appBaseURL =
-  process.env.NUXT_APP_BASE_URL || (isGithubPages ? "/german-tech-podcast-survey/" : "/");
+  process.env.NUXT_APP_BASE_URL ||
+  (process.env.NODE_ENV === "production"
+    ? "/german-tech-podcast-survey/"
+    : "/");
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
