@@ -9,7 +9,22 @@ export default defineNuxtConfig({
 
   tailwindcss: {
     cssPath: "~/assets/css/main.css",
-    injectPosition: "first",
+    config: {
+      content: [
+        "./components/**/*.{js,vue,ts}",
+        "./layouts/**/*.vue",
+        "./pages/**/*.vue",
+        "./plugins/**/*.{js,ts}",
+        "./error.vue",
+      ],
+    },
+  },
+
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
   },
 
   app: {
