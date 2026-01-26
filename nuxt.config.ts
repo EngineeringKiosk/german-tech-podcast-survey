@@ -29,6 +29,8 @@ export default defineNuxtConfig({
 
   app: {
     baseURL: process.env.NUXT_APP_BASE_URL || "/",
+    buildAssetsDir: "/_nuxt/",
+    cdnURL: process.env.NUXT_APP_BASE_URL || "/",
     head: {
       htmlAttrs: {
         lang: "de",
