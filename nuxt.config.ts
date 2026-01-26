@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "@nuxt/eslint", "@nuxt/fonts"],
 
   app: {
+    baseURL: process.env.NUXT_APP_BASE_URL || "/",
     head: {
       htmlAttrs: {
         lang: "de",
