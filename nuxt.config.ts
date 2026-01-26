@@ -1,9 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const isGithubPages =
+  process.env.GITHUB_PAGES === "true" || process.env.GITHUB_ACTIONS === "true";
+const appBaseURL =
+  process.env.NUXT_APP_BASE_URL || (isGithubPages ? "/german-tech-podcast-survey/" : "/");
+
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
 
-  ssr: false, // Disable SSR for GitHub Pages static generation
+  ssr: true, // Enable SSR for proper static generation with CSS
 
   modules: ["@nuxtjs/tailwindcss", "@nuxt/eslint", "@nuxt/fonts"],
 
@@ -28,7 +33,7 @@ export default defineNuxtConfig({
   },
 
   app: {
-    baseURL: process.env.NUXT_APP_BASE_URL || "/",
+    baseURL: appBaseURL,
     head: {
       htmlAttrs: {
         lang: "de",
@@ -51,5 +56,9 @@ export default defineNuxtConfig({
     public: {
       surveyApiUrl: process.env.NUXT_PUBLIC_SURVEY_API_URL || "/api/survey",
     },
+  },
+
+  nitro: {
+    preset: "github-pages",
   },
 });
