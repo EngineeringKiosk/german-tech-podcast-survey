@@ -12,6 +12,11 @@ export default defineNuxtConfig({
 
   ssr: true, // Enable SSR for proper static generation with CSS
 
+  experimental: {
+    // Emit CSS as a standalone file instead of inlining; safer for Pages caching
+    inlineSSRStyles: false,
+  },
+
   modules: ["@nuxtjs/tailwindcss", "@nuxt/eslint", "@nuxt/fonts"],
 
   tailwindcss: {
