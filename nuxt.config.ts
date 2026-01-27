@@ -1,10 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-// In production (including GitHub Pages), serve the app from the repo subfolder.
-const appBaseURL =
-  process.env.NUXT_APP_BASE_URL ||
-  (process.env.NODE_ENV === "production"
-    ? "/german-tech-podcast-survey/"
-    : "/");
+// Use the same baseURL/preset locally and in GitHub Actions; override via env if needed.
+const repo =
+  process.env.GITHUB_REPOSITORY?.split("/")[1] || "german-tech-podcast-survey";
+const appBaseURL = process.env.NUXT_APP_BASE_URL || `/${repo}/`;
+const nitroPreset = process.env.NUXT_NITRO_PRESET || "github-pages";
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
@@ -66,6 +65,6 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: "github-pages",
+    preset: nitroPreset,
   },
 });
