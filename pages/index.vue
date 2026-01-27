@@ -40,11 +40,35 @@
 
       <!-- Survey Form -->
       <form v-if="!submitSuccess" @submit.prevent="handleSubmit" class="space-y-8">
-        <!-- Question 1: Altersgruppe -->
+        <!-- Question 1: Podcast List (Checkboxes) -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-2">
+              1. Welche deutschsprachigen Tech-Podcasts hörst du regelmäßig (mindestens eine Episode in den letzten 3 Monaten)?
+            </legend>
+            <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
+            <div class="space-y-3">
+              <div v-for="podcast in podcastList" :key="podcast" class="flex items-start">
+                <input
+                  :id="`q01-${podcast}`"
+                  v-model="answers.q01"
+                  type="checkbox"
+                  :value="podcast"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label :for="`q01-${podcast}`" class="ml-3 text-gray-700">
+                  {{ podcast }}
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 2: Altersgruppe -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              1. In welcher Altersgruppe bist du?
+              2. In welcher Altersgruppe bist du?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -155,11 +179,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 2: Geschlecht -->
+        <!-- Question 3: Geschlecht -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              2. Wie möchtest du dich einordnen?
+              3. Wie möchtest du dich einordnen?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -218,11 +242,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 3: Berufserfahrung -->
+        <!-- Question 4: Berufserfahrung -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              3. Wie viele Jahre Berufserfahrung hast du?
+              4. Wie viele Jahre Berufserfahrung hast du?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -307,11 +331,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 4: Bildung -->
+        <!-- Question 5: Bildung -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              4. Was ist dein höchster Bildungsabschluss?
+              5. Was ist dein höchster Bildungsabschluss?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -409,11 +433,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 5: IT-Tätigkeit -->
+        <!-- Question 6: IT-Tätigkeit -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              5. Bist du im IT-Bereich tätig?
+              6. Bist du im IT-Bereich tätig?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -459,11 +483,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 5a: Tätigkeitsbereich (Conditional) -->
+        <!-- Question 6a: Tätigkeitsbereich (Conditional) -->
         <section v-if="answers.q_it === 'Ja, ich arbeite im IT-Bereich.'" class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              5a. Was ist dein Tätigkeitsbereich oder trifft am ehesten zu?
+              6a. Was ist dein Tätigkeitsbereich oder trifft am ehesten zu?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -782,11 +806,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 5b: Rolle (Conditional) -->
+        <!-- Question 6b: Rolle (Conditional) -->
         <section v-if="answers.q_it === 'Ja, ich arbeite im IT-Bereich.'" class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              5b. Was ist deine Rolle?
+              6b. Was ist deine Rolle?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -897,11 +921,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 6: Unternehmensgröße -->
+        <!-- Question 7: Unternehmensgröße -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              6. Wie groß ist dein Unternehmen (Anzahl Mitarbeitende)?
+              7. Wie groß ist dein Unternehmen (Anzahl Mitarbeitende)?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -999,11 +1023,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 7: Wöchentliche Hördauer -->
+        <!-- Question 8: Wöchentliche Hördauer -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              7. Wie viel Zeit nutzt du pro Woche circa, um deutschsprachige Tech-Podcasts zu konsumieren?
+              8. Wie viel Zeit nutzt du pro Woche circa, um deutschsprachige Tech-Podcasts zu konsumieren?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -1087,31 +1111,6 @@
             </div>
           </fieldset>
         </section>
-
-        <!-- Question 1: Podcast List (Checkboxes) -->
-        <section class="bg-white shadow-sm rounded-lg p-6">
-          <fieldset>
-            <legend class="text-xl font-semibold text-gray-900 mb-2">
-              8. Welche deutschsprachigen Tech-Podcasts hörst du regelmäßig (mindestens eine Episode in den letzten 3 Monaten)?
-            </legend>
-            <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
-            <div class="space-y-3">
-              <div v-for="podcast in podcastList" :key="podcast" class="flex items-start">
-                <input
-                  :id="`q01-${podcast}`"
-                  v-model="answers.q01"
-                  type="checkbox"
-                  :value="podcast"
-                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
-                />
-                <label :for="`q01-${podcast}`" class="ml-3 text-gray-700">
-                  {{ podcast }}
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </section>
-
         <!-- Question 9: Q04 -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
@@ -1569,7 +1568,7 @@
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              16. Hast du schon einmal einen Podcast durch eine Spende oder Subscription (Steady, LiberaPay, etc) unterstützt?
+              16. Hast du schon einmal einen Podcast durch eine Spende oder Subscription (Steady, Liberapay, etc) unterstützt?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -2956,12 +2955,12 @@
                   id="q23-nichthilfreich"
                   v-model="answers.q23"
                   type="radio"
-                  value="Nicht hilfreich – ich skippe Intros, breche die Episode ab oder höre das Intro nur unter Protest"
+                  value="Nicht hilfreich/ich skippe Intros"
                   name="q23"
                   class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
                 />
                 <label for="q23-nichthilfreich" class="ml-3 text-gray-700">
-                  Nicht hilfreich – ich skippe Intros, breche die Episode ab oder höre das Intro nur unter Protest
+                  Nicht hilfreich/ich skippe Intros
                 </label>
               </div>
             </div>

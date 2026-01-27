@@ -497,7 +497,7 @@
 
 - Hilfreich – so weiß ich gleich, worauf ich mich einlasse
 - Neutral – ist mir nicht so wichtig
-- Nicht hilfreich – ich skippe Intros, breche die Episode ab oder höre das Intro nur unter Protest
+- Nicht hilfreich/ich skippe Intros
 
 ---
 
