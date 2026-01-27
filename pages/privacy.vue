@@ -33,17 +33,6 @@
 
         <section>
           <h2 class="text-xl font-semibold text-gray-900 mb-3">
-            Keine Datenspeicherung im Browser
-          </h2>
-          <p class="mb-3">
-            Deine Antworten werden nicht im Browser gespeichert (kein LocalStorage oder SessionStorage). 
-            Wenn du die Seite neu lädst, gehen deine Eingaben verloren. Deine Daten werden nur bei 
-            erfolgreicher Übermittlung an unseren Server gesendet.
-          </p>
-        </section>
-
-        <section>
-          <h2 class="text-xl font-semibold text-gray-900 mb-3">
             Datenverwendung
           </h2>
           <p class="mb-3">
@@ -62,6 +51,17 @@
             Die Teilnahme an dieser Umfrage ist vollständig freiwillig. Alle Fragen sind optional – 
             du kannst die Umfrage jederzeit absenden, auch wenn du nicht alle Fragen beantwortet hast. 
             Es besteht keine Verpflichtung zur Teilnahme oder zur Beantwortung einzelner Fragen.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-gray-900 mb-3">
+            Lokale Zwischenspeicherung
+          </h2>
+          <p class="mb-3">
+            Deine Antworten werden beim Ausfüllen lokal in deinem Browser (LocalStorage) zwischengespeichert, 
+            damit du sie bei einem Seiten-Reload nicht verlierst. Beim erfolgreichen Absenden werden die 
+            lokalen Daten gelöscht.
           </p>
         </section>
       </div>

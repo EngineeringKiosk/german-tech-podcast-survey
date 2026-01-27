@@ -3553,6 +3553,8 @@
 </template>
 
 <script setup lang="ts">
+const STORAGE_KEY = 'podcast-survey-answers'
+
 const podcastList = [
   'Binärgewitter',
   'Bits & Böses - Der Tech Crime Podcast',
@@ -3684,6 +3686,33 @@ const isSubmitting = ref(false)
 const submitSuccess = ref(false)
 const submitError = ref('')
 
+// Load saved answers from localStorage (if any)
+onMounted(() => {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY)
+    if (saved) {
+      const parsed = JSON.parse(saved)
+      answers.value = { ...answers.value, ...parsed }
+    }
+  } catch (error) {
+    console.warn('Konnte gespeicherte Antworten nicht laden:', error)
+  }
+})
+
+// Persist answers on every change to prevent data loss before submit
+watch(
+  answers,
+  (value) => {
+    if (submitSuccess.value) return
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(value))
+    } catch (error) {
+      console.warn('Konnte Antworten nicht speichern:', error)
+    }
+  },
+  { deep: true }
+)
+
 // Submit handler
 const handleSubmit = async () => {
   isSubmitting.value = true
@@ -3701,6 +3730,7 @@ const handleSubmit = async () => {
     })
     
     submitSuccess.value = true
+    localStorage.removeItem(STORAGE_KEY)
     
     // Scroll to top to show success message
     window.scrollTo({ top: 0, behavior: 'smooth' })
