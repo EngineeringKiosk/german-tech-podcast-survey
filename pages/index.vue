@@ -40,11 +40,1059 @@
 
       <!-- Survey Form -->
       <form v-if="!submitSuccess" @submit.prevent="handleSubmit" class="space-y-8">
+        <!-- Question 1: Altersgruppe -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              1. In welcher Altersgruppe bist du?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q-age-unter18"
+                  v-model="answers.q_age"
+                  type="radio"
+                  value="Unter 18"
+                  name="q_age"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-age-unter18" class="ml-3 text-gray-700">
+                  Unter 18
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-age-18-24"
+                  v-model="answers.q_age"
+                  type="radio"
+                  value="18–24"
+                  name="q_age"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-age-18-24" class="ml-3 text-gray-700">
+                  18–24
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-age-25-34"
+                  v-model="answers.q_age"
+                  type="radio"
+                  value="25–34"
+                  name="q_age"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-age-25-34" class="ml-3 text-gray-700">
+                  25–34
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-age-35-44"
+                  v-model="answers.q_age"
+                  type="radio"
+                  value="35–44"
+                  name="q_age"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-age-35-44" class="ml-3 text-gray-700">
+                  35–44
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-age-45-54"
+                  v-model="answers.q_age"
+                  type="radio"
+                  value="45–54"
+                  name="q_age"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-age-45-54" class="ml-3 text-gray-700">
+                  45–54
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-age-55-64"
+                  v-model="answers.q_age"
+                  type="radio"
+                  value="55–64"
+                  name="q_age"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-age-55-64" class="ml-3 text-gray-700">
+                  55–64
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-age-65plus"
+                  v-model="answers.q_age"
+                  type="radio"
+                  value="65+"
+                  name="q_age"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-age-65plus" class="ml-3 text-gray-700">
+                  65+
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-age-keineangabe"
+                  v-model="answers.q_age"
+                  type="radio"
+                  value="Keine Angabe"
+                  name="q_age"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-age-keineangabe" class="ml-3 text-gray-700">
+                  Keine Angabe
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 2: Geschlecht -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              2. Wie möchtest du dich einordnen?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q-gender-weiblich"
+                  v-model="answers.q_gender"
+                  type="radio"
+                  value="Weiblich"
+                  name="q_gender"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-gender-weiblich" class="ml-3 text-gray-700">
+                  Weiblich
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-gender-maennlich"
+                  v-model="answers.q_gender"
+                  type="radio"
+                  value="Männlich"
+                  name="q_gender"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-gender-maennlich" class="ml-3 text-gray-700">
+                  Männlich
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-gender-nb"
+                  v-model="answers.q_gender"
+                  type="radio"
+                  value="Nicht-binär"
+                  name="q_gender"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-gender-nb" class="ml-3 text-gray-700">
+                  Nicht-binär
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-gender-keineangabe"
+                  v-model="answers.q_gender"
+                  type="radio"
+                  value="Keine Angabe"
+                  name="q_gender"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-gender-keineangabe" class="ml-3 text-gray-700">
+                  Keine Angabe
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 3: Berufserfahrung -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              3. Wie viele Jahre Berufserfahrung hast du?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q-exp-0-1"
+                  v-model="answers.q_experience"
+                  type="radio"
+                  value="0–1"
+                  name="q_experience"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-exp-0-1" class="ml-3 text-gray-700">
+                  0–1
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-exp-2-4"
+                  v-model="answers.q_experience"
+                  type="radio"
+                  value="2–4"
+                  name="q_experience"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-exp-2-4" class="ml-3 text-gray-700">
+                  2–4
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-exp-5-9"
+                  v-model="answers.q_experience"
+                  type="radio"
+                  value="5–9"
+                  name="q_experience"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-exp-5-9" class="ml-3 text-gray-700">
+                  5–9
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-exp-10-14"
+                  v-model="answers.q_experience"
+                  type="radio"
+                  value="10–14"
+                  name="q_experience"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-exp-10-14" class="ml-3 text-gray-700">
+                  10–14
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-exp-15plus"
+                  v-model="answers.q_experience"
+                  type="radio"
+                  value="15+"
+                  name="q_experience"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-exp-15plus" class="ml-3 text-gray-700">
+                  15+
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-exp-keineangabe"
+                  v-model="answers.q_experience"
+                  type="radio"
+                  value="Keine Angabe"
+                  name="q_experience"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-exp-keineangabe" class="ml-3 text-gray-700">
+                  Keine Angabe
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 4: Bildung -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              4. Was ist dein höchster Bildungsabschluss?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q-edu-pflicht"
+                  v-model="answers.q_education"
+                  type="radio"
+                  value="Pflichtschule"
+                  name="q_education"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-edu-pflicht" class="ml-3 text-gray-700">
+                  Pflichtschule
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-edu-lehre"
+                  v-model="answers.q_education"
+                  type="radio"
+                  value="Lehre"
+                  name="q_education"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-edu-lehre" class="ml-3 text-gray-700">
+                  Lehre
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-edu-matura"
+                  v-model="answers.q_education"
+                  type="radio"
+                  value="Matura/Abitur"
+                  name="q_education"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-edu-matura" class="ml-3 text-gray-700">
+                  Matura/Abitur
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-edu-bachelor"
+                  v-model="answers.q_education"
+                  type="radio"
+                  value="Bachelor"
+                  name="q_education"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-edu-bachelor" class="ml-3 text-gray-700">
+                  Bachelor
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-edu-master"
+                  v-model="answers.q_education"
+                  type="radio"
+                  value="Master/Diplom"
+                  name="q_education"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-edu-master" class="ml-3 text-gray-700">
+                  Master/Diplom
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-edu-phd"
+                  v-model="answers.q_education"
+                  type="radio"
+                  value="Doktorat/PhD"
+                  name="q_education"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-edu-phd" class="ml-3 text-gray-700">
+                  Doktorat/PhD
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-edu-keineangabe"
+                  v-model="answers.q_education"
+                  type="radio"
+                  value="Keine Angabe"
+                  name="q_education"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-edu-keineangabe" class="ml-3 text-gray-700">
+                  Keine Angabe
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 5: IT-Tätigkeit -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              5. Bist du im IT-Bereich tätig?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q-it-arbeite"
+                  v-model="answers.q_it"
+                  type="radio"
+                  value="Ja, ich arbeite im IT-Bereich."
+                  name="q_it"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-arbeite" class="ml-3 text-gray-700">
+                  Ja, ich arbeite im IT-Bereich.
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-ausbildung"
+                  v-model="answers.q_it"
+                  type="radio"
+                  value="Ja, ich absolviere derzeit eine Ausbildung, ein Studium, eine Weiterbildung o. ä. im IT-Bereich."
+                  name="q_it"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-ausbildung" class="ml-3 text-gray-700">
+                  Ja, ich absolviere derzeit eine Ausbildung, ein Studium, eine Weiterbildung o. ä. im IT-Bereich.
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-beruehrung"
+                  v-model="answers.q_it"
+                  type="radio"
+                  value="Nein, aber ich habe viele Berührungspunkte mit Tech-Themen."
+                  name="q_it"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-beruehrung" class="ml-3 text-gray-700">
+                  Nein, aber ich habe viele Berührungspunkte mit Tech-Themen.
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 5a: Tätigkeitsbereich (Conditional) -->
+        <section v-if="answers.q_it === 'Ja, ich arbeite im IT-Bereich.'" class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              5a. Was ist dein Tätigkeitsbereich oder trifft am ehesten zu?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-software"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="Softwareentwicklung (Frontend, Backend, Fullstack)"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-software" class="ml-3 text-gray-700">
+                  Softwareentwicklung (Frontend, Backend, Fullstack)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-mobile"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="Mobile Entwicklung"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-mobile" class="ml-3 text-gray-700">
+                  Mobile Entwicklung
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-embedded"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="Embedded / Firmware / IoT"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-embedded" class="ml-3 text-gray-700">
+                  Embedded / Firmware / IoT
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-ds"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="Data Science / Machine Learning / KI"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-ds" class="ml-3 text-gray-700">
+                  Data Science / Machine Learning / KI
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-de"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="Data Engineering / Dateninfrastruktur"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-de" class="ml-3 text-gray-700">
+                  Data Engineering / Dateninfrastruktur
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-bi"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="Business Intelligence / Data Analytics"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-bi" class="ml-3 text-gray-700">
+                  Business Intelligence / Data Analytics
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-dba"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="Datenbank / DBA"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-dba" class="ml-3 text-gray-700">
+                  Datenbank / DBA
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-devops"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="DevOps / Site Reliability Engineering"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-devops" class="ml-3 text-gray-700">
+                  DevOps / Site Reliability Engineering
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-cloud"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="Cloud-Infrastruktur / Platform Engineering"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-cloud" class="ml-3 text-gray-700">
+                  Cloud-Infrastruktur / Platform Engineering
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-ops"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="IT-Operations / Systemadministration"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-ops" class="ml-3 text-gray-700">
+                  IT-Operations / Systemadministration
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-network"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="Netzwerk / Network Engineering"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-network" class="ml-3 text-gray-700">
+                  Netzwerk / Network Engineering
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-security"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="IT-Security / Cybersecurity"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-security" class="ml-3 text-gray-700">
+                  IT-Security / Cybersecurity
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-qa"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="Qualitätssicherung / Testing (inkl. Test Automation)"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-qa" class="ml-3 text-gray-700">
+                  Qualitätssicherung / Testing (inkl. Test Automation)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-architektur"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="IT-Architektur (Solution / Enterprise)"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-architektur" class="ml-3 text-gray-700">
+                  IT-Architektur (Solution / Enterprise)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-ux"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="UX/UI Design / Interaction Design"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-ux" class="ml-3 text-gray-700">
+                  UX/UI Design / Interaction Design
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-product"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="Produktmanagement / Product Owner"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-product" class="ml-3 text-gray-700">
+                  Produktmanagement / Product Owner
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-project"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="Projektmanagement / Delivery / Programmmanagement"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-project" class="ml-3 text-gray-700">
+                  Projektmanagement / Delivery / Programmmanagement
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-agile"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="Agile Coaching / Scrum Master"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-agile" class="ml-3 text-gray-700">
+                  Agile Coaching / Scrum Master
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-consulting"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="IT-Beratung / Tech-Consulting"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-consulting" class="ml-3 text-gray-700">
+                  IT-Beratung / Tech-Consulting
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-presales"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="Pre-Sales / Solution Engineering / Sales Engineering"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-presales" class="ml-3 text-gray-700">
+                  Pre-Sales / Solution Engineering / Sales Engineering
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-cs"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="Customer Success / Technical Account Management / Support Engineering"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-cs" class="ml-3 text-gray-700">
+                  Customer Success / Technical Account Management / Support Engineering
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-devrel"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="Developer Relations / Developer Advocacy"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-devrel" class="ml-3 text-gray-700">
+                  Developer Relations / Developer Advocacy
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-forschung"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="Forschung / Wissenschaft"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-forschung" class="ml-3 text-gray-700">
+                  Forschung / Wissenschaft
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-area-andere"
+                  v-model="answers.q_it_area"
+                  type="radio"
+                  value="Anderer Tätigkeitsbereich"
+                  name="q_it_area"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-area-andere" class="ml-3 text-gray-700">
+                  Anderer Tätigkeitsbereich
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 5b: Rolle (Conditional) -->
+        <section v-if="answers.q_it === 'Ja, ich arbeite im IT-Bereich.'" class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              5b. Was ist deine Rolle?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q-it-role-clevel"
+                  v-model="answers.q_it_role"
+                  type="radio"
+                  value="Geschäftsführung / C-Level (z. B. CTO, CIO, CEO)"
+                  name="q_it_role"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-role-clevel" class="ml-3 text-gray-700">
+                  Geschäftsführung / C-Level (z. B. CTO, CIO, CEO)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-role-head"
+                  v-model="answers.q_it_role"
+                  type="radio"
+                  value="Bereichsleitung / Abteilungsleitung (z. B. Head of Engineering, IT-Leitung)"
+                  name="q_it_role"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-role-head" class="ml-3 text-gray-700">
+                  Bereichsleitung / Abteilungsleitung (z. B. Head of Engineering, IT-Leitung)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-role-teamlead"
+                  v-model="answers.q_it_role"
+                  type="radio"
+                  value="Teamleitung (z. B. Engineering Manager)"
+                  name="q_it_role"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-role-teamlead" class="ml-3 text-gray-700">
+                  Teamleitung (z. B. Engineering Manager)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-role-techlead"
+                  v-model="answers.q_it_role"
+                  type="radio"
+                  value="Tech Lead"
+                  name="q_it_role"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-role-techlead" class="ml-3 text-gray-700">
+                  Tech Lead
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-role-senior"
+                  v-model="answers.q_it_role"
+                  type="radio"
+                  value="Senior-Fachkraft (z. B. Senior Developer, Senior Data Scientist)"
+                  name="q_it_role"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-role-senior" class="ml-3 text-gray-700">
+                  Senior-Fachkraft (z. B. Senior Developer, Senior Data Scientist)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-role-fachkraft"
+                  v-model="answers.q_it_role"
+                  type="radio"
+                  value="Fachkraft (z. B. Softwareentwickler*in, Data Analyst, IT-Administrator*in)"
+                  name="q_it_role"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-role-fachkraft" class="ml-3 text-gray-700">
+                  Fachkraft (z. B. Softwareentwickler*in, Data Analyst, IT-Administrator*in)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-role-junior"
+                  v-model="answers.q_it_role"
+                  type="radio"
+                  value="Berufseinsteiger*in / Junior"
+                  name="q_it_role"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-role-junior" class="ml-3 text-gray-700">
+                  Berufseinsteiger*in / Junior
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-it-role-forschung"
+                  v-model="answers.q_it_role"
+                  type="radio"
+                  value="Forschung"
+                  name="q_it_role"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-it-role-forschung" class="ml-3 text-gray-700">
+                  Forschung
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 6: Unternehmensgröße -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              6. Wie groß ist dein Unternehmen (Anzahl Mitarbeitende)?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q-company-1"
+                  v-model="answers.q_company_size"
+                  type="radio"
+                  value="1 (Solo / Selbstständig)"
+                  name="q_company_size"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-company-1" class="ml-3 text-gray-700">
+                  1 (Solo / Selbstständig)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-company-2-10"
+                  v-model="answers.q_company_size"
+                  type="radio"
+                  value="2–10"
+                  name="q_company_size"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-company-2-10" class="ml-3 text-gray-700">
+                  2–10
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-company-11-50"
+                  v-model="answers.q_company_size"
+                  type="radio"
+                  value="11–50"
+                  name="q_company_size"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-company-11-50" class="ml-3 text-gray-700">
+                  11–50
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-company-51-200"
+                  v-model="answers.q_company_size"
+                  type="radio"
+                  value="51–200"
+                  name="q_company_size"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-company-51-200" class="ml-3 text-gray-700">
+                  51–200
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-company-201-1000"
+                  v-model="answers.q_company_size"
+                  type="radio"
+                  value="201–1000"
+                  name="q_company_size"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-company-201-1000" class="ml-3 text-gray-700">
+                  201–1000
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-company-1001-3000"
+                  v-model="answers.q_company_size"
+                  type="radio"
+                  value="1.001–3000"
+                  name="q_company_size"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-company-1001-3000" class="ml-3 text-gray-700">
+                  1.001–3000
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-company-3001"
+                  v-model="answers.q_company_size"
+                  type="radio"
+                  value="3001+"
+                  name="q_company_size"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-company-3001" class="ml-3 text-gray-700">
+                  3001+
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- Question 7: Wöchentliche Hördauer -->
+        <section class="bg-white shadow-sm rounded-lg p-6">
+          <fieldset>
+            <legend class="text-xl font-semibold text-gray-900 mb-4">
+              7. Wie viel Zeit nutzt du pro Woche circa, um deutschsprachige Tech-Podcasts zu konsumieren?
+            </legend>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q-weekly-unter30"
+                  v-model="answers.q_weekly_listening"
+                  type="radio"
+                  value="Weniger als 30 Minuten"
+                  name="q_weekly_listening"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-weekly-unter30" class="ml-3 text-gray-700">
+                  Weniger als 30 Minuten
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-weekly-30-59"
+                  v-model="answers.q_weekly_listening"
+                  type="radio"
+                  value="30–59 Minuten"
+                  name="q_weekly_listening"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-weekly-30-59" class="ml-3 text-gray-700">
+                  30–59 Minuten
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-weekly-1-2"
+                  v-model="answers.q_weekly_listening"
+                  type="radio"
+                  value="1–2 Stunden"
+                  name="q_weekly_listening"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-weekly-1-2" class="ml-3 text-gray-700">
+                  1–2 Stunden
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-weekly-2-4"
+                  v-model="answers.q_weekly_listening"
+                  type="radio"
+                  value="2–4 Stunden"
+                  name="q_weekly_listening"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-weekly-2-4" class="ml-3 text-gray-700">
+                  2–4 Stunden
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-weekly-4plus"
+                  v-model="answers.q_weekly_listening"
+                  type="radio"
+                  value="Mehr als 4 Stunden"
+                  name="q_weekly_listening"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-weekly-4plus" class="ml-3 text-gray-700">
+                  Mehr als 4 Stunden
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q-weekly-variabel"
+                  v-model="answers.q_weekly_listening"
+                  type="radio"
+                  value="Sehr unterschiedlich / kann ich schwer sagen"
+                  name="q_weekly_listening"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-weekly-variabel" class="ml-3 text-gray-700">
+                  Sehr unterschiedlich / kann ich schwer sagen
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+
         <!-- Question 1: Podcast List (Checkboxes) -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              1. Welche der folgenden deutschsprachigen Tech-Podcasts hörst du?
+              8. Welche deutschsprachigen Tech-Podcasts hörst du regelmäßig (mindestens eine Episode in den letzten 3 Monaten)?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
@@ -64,11 +1112,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 2: Q04 -->
+        <!-- Question 9: Q04 -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              2. Hörst du bei deinen Lieblings-Podcasts jede Folge – oder suchst du dir gezielt aus, was dich interessiert?
+              9. Hörst du bei deinen Lieblings-Podcasts jede Folge – oder suchst du dir gezielt aus, was dich interessiert?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -114,11 +1162,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 3: Q04A (Conditional) -->
+        <!-- Question 10: Q04A (Conditional) -->
         <section v-if="answers.q04 !== 'Ich höre (fast) jede Folge'" class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              3. Nach welchen Kriterien wählst du aus, welche Episoden du hörst?
+              10. Nach welchen Kriterien wählst du aus, welche Episoden du hörst?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
@@ -210,24 +1258,24 @@
           </fieldset>
         </section>
 
-        <!-- Question 4: Formate -->
+        <!-- Question 11: Formate -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              4. Welche Formate hörst du am liebsten?
+              11. Welche Podcast-Formate hörst du am liebsten?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
               <div class="flex items-start">
                 <input
-                  id="q02-interview"
+                  id="q02-interviews"
                   v-model="answers.q02"
                   type="checkbox"
-                  value="Interview"
+                  value="Interviews"
                   class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
                 />
-                <label for="q02-interview" class="ml-3 text-gray-700">
-                  Interview
+                <label for="q02-interviews" class="ml-3 text-gray-700">
+                  Interviews
                 </label>
               </div>
               <div class="flex items-start">
@@ -235,11 +1283,11 @@
                   id="q02-news"
                   v-model="answers.q02"
                   type="checkbox"
-                  value="News"
+                  value="News / Updates"
                   class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
                 />
                 <label for="q02-news" class="ml-3 text-gray-700">
-                  News
+                  News / Updates
                 </label>
               </div>
               <div class="flex items-start">
@@ -247,34 +1295,94 @@
                   id="q02-deepdive"
                   v-model="answers.q02"
                   type="checkbox"
-                  value="Deep Dives zu einem Thema"
+                  value="Deep Dives (ein Thema in Tiefe)"
                   class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
                 />
                 <label for="q02-deepdive" class="ml-3 text-gray-700">
-                  Deep Dives zu einem Thema
+                  Deep Dives (ein Thema in Tiefe)
                 </label>
               </div>
               <div class="flex items-start">
                 <input
-                  id="q02-laberpodcast"
+                  id="q02-talk"
                   v-model="answers.q02"
                   type="checkbox"
-                  value="Laberpodcast"
+                  value="Talk / Laberpodcast (lockere Gesprächsrunden)"
                   class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
                 />
-                <label for="q02-laberpodcast" class="ml-3 text-gray-700">
-                  Laberpodcast
+                <label for="q02-talk" class="ml-3 text-gray-700">
+                  Talk / Laberpodcast (lockere Gesprächsrunden)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q02-storytelling"
+                  v-model="answers.q02"
+                  type="checkbox"
+                  value="Storytelling / Reportagen"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q02-storytelling" class="ml-3 text-gray-700">
+                  Storytelling / Reportagen
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q02-panels"
+                  v-model="answers.q02"
+                  type="checkbox"
+                  value="Panels / Roundtables (mehrere Gäste)"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q02-panels" class="ml-3 text-gray-700">
+                  Panels / Roundtables (mehrere Gäste)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q02-qa"
+                  v-model="answers.q02"
+                  type="checkbox"
+                  value="Q&A / Hörerfragen"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q02-qa" class="ml-3 text-gray-700">
+                  Q&A / Hörerfragen
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q02-tutorials"
+                  v-model="answers.q02"
+                  type="checkbox"
+                  value="Tutorials / How-to (praxisnah, Schritt für Schritt)"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q02-tutorials" class="ml-3 text-gray-700">
+                  Tutorials / How-to (praxisnah, Schritt für Schritt)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q02-kurzformate"
+                  v-model="answers.q02"
+                  type="checkbox"
+                  value="Kurzformate / Snackable (unter 15 Minuten)"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q02-kurzformate" class="ml-3 text-gray-700">
+                  Kurzformate / Snackable (unter 15 Minuten)
                 </label>
               </div>
             </div>
           </fieldset>
         </section>
 
-        <!-- Question 5: Q05 -->
+        <!-- Question 12: Q05 -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              5. Hörst du deutschsprachige Tech-Podcasts aus privatem Interesse oder als Form von beruflicher Weiterbildung?
+              12. Hörst du deutschsprachige Tech-Podcasts aus privatem Interesse oder als Form von beruflicher Weiterbildung?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -320,11 +1428,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 6: Q06 -->
+        <!-- Question 13: Q06 -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              6. Magst du es eher informativ und auf den Punkt - oder bevorzugst du entspanntes Geplauder?
+              13. Magst du es eher informativ und auf den Punkt - oder bevorzugst du entspanntes Geplauder?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -370,11 +1478,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 7: Q07 -->
+        <!-- Question 14: Q07 -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              7. Hörst du tendenziell Podcast-Episoden zu Themen, in denen du dich bereits auskennst?
+              14. Hörst du tendenziell Podcast-Episoden zu Themen, in denen du dich bereits auskennst?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -407,11 +1515,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 8: Q08 -->
+        <!-- Question 15: Q08 -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              8. Wie stehst du zu Werbung in Podcasts?
+              15. Wie stehst du zu Werbung in Podcasts?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -457,11 +1565,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 9: Support -->
+        <!-- Question 16: Support -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              9. Hast du schon einmal einen Podcast durch eine Spende oder Subscription (Steady, LiberaPay, etc) unterstützt?
+              16. Hast du schon einmal einen Podcast durch eine Spende oder Subscription (Steady, LiberaPay, etc) unterstützt?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -507,11 +1615,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 10: Q08a (Conditional) -->
+        <!-- Question 17: Q08a (Conditional) -->
         <section v-if="answers.q08 !== 'Mag ich nicht'" class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              10. Hast du Werbeeinblendungen bereits aktiv genutzt? (beworbene Produkte gekauft, Gutscheincodes eingelöst, etc.)
+              17. Hast du Werbeeinblendungen bereits aktiv genutzt? (beworbene Produkte gekauft, Gutscheincodes eingelöst, etc.)
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -544,11 +1652,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 11: Q10 -->
+        <!-- Question 18: Q10 -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              11. Wie lang ist eine Episode idealerweise für dich?
+              18. Wie lang ist eine Episode idealerweise für dich?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -646,11 +1754,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 12: Q11 (Checkboxes with Freitext) -->
+        <!-- Question 19: Q11 (Checkboxes with Freitext) -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              12. In welchem Kontext hörst du deutschsprachige Tech-Podcasts?
+              19. In welchem Kontext hörst du deutschsprachige Tech-Podcasts?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
@@ -742,11 +1850,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 13: Q12 -->
+        <!-- Question 20: Q12 -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              13. Würdest du sagen, dass dich das Hören von Podcasts beruflich weitergebracht hat?
+              20. Würdest du sagen, dass dich das Hören von Podcasts beruflich weitergebracht hat?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -779,11 +1887,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 14: Q12A (Conditional) -->
+        <!-- Question 20a: Q12A (Conditional) -->
         <section v-if="answers.q12 === 'Ja'" class="bg-white shadow-sm rounded-lg p-6">
           <div>
             <label for="q12a" class="block text-xl font-semibold text-gray-900 mb-4">
-              14. Inwiefern hast du beruflich vom Podcast-Hören profitiert?
+              20a. Inwiefern hast du beruflich vom Podcast-Hören profitiert?
             </label>
             <textarea
               id="q12a"
@@ -795,11 +1903,11 @@
           </div>
         </section>
 
-        <!-- Question 15: Q13 (Checkboxes with Freitext) -->
+        <!-- Question 21: Q13 (Checkboxes with Freitext) -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              15. Welche Themen interessieren dich in Tech-Podcasts besonders?
+              21. Welche Themen interessieren dich in Tech-Podcasts besonders?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
@@ -817,86 +1925,14 @@
               </div>
               <div class="flex items-start">
                 <input
-                  id="q13-hardware"
-                  v-model="answers.q13"
-                  type="checkbox"
-                  value="Hardware & Zukunftstechnologien"
-                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
-                />
-                <label for="q13-hardware" class="ml-3 text-gray-700">
-                  Hardware & Zukunftstechnologien
-                </label>
-              </div>
-              <div class="flex items-start">
-                <input
-                  id="q13-infrastruktur"
-                  v-model="answers.q13"
-                  type="checkbox"
-                  value="Infrastruktur & Plattformen"
-                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
-                />
-                <label for="q13-infrastruktur" class="ml-3 text-gray-700">
-                  Infrastruktur & Plattformen
-                </label>
-              </div>
-              <div class="flex items-start">
-                <input
-                  id="q13-ki"
-                  v-model="answers.q13"
-                  type="checkbox"
-                  value="Künstliche Intelligenz"
-                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
-                />
-                <label for="q13-ki" class="ml-3 text-gray-700">
-                  Künstliche Intelligenz
-                </label>
-              </div>
-              <div class="flex items-start">
-                <input
-                  id="q13-data"
-                  v-model="answers.q13"
-                  type="checkbox"
-                  value="Data Science & Machine Learning"
-                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
-                />
-                <label for="q13-data" class="ml-3 text-gray-700">
-                  Data Science & Machine Learning
-                </label>
-              </div>
-              <div class="flex items-start">
-                <input
-                  id="q13-leadership"
-                  v-model="answers.q13"
-                  type="checkbox"
-                  value="Leadership, Kultur & Zusammenarbeit"
-                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
-                />
-                <label for="q13-leadership" class="ml-3 text-gray-700">
-                  Leadership, Kultur & Zusammenarbeit
-                </label>
-              </div>
-              <div class="flex items-start">
-                <input
-                  id="q13-security"
-                  v-model="answers.q13"
-                  type="checkbox"
-                  value="Sicherheit & Datenschutz"
-                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
-                />
-                <label for="q13-security" class="ml-3 text-gray-700">
-                  Sicherheit & Datenschutz
-                </label>
-              </div>
-              <div class="flex items-start">
-                <input
                   id="q13-software"
                   v-model="answers.q13"
                   type="checkbox"
-                  value="Softwareentwicklung & Architektur"
+                  value="Softwareentwicklung & Architektur (Backend, APIs, Patterns)"
                   class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
                 />
                 <label for="q13-software" class="ml-3 text-gray-700">
-                  Softwareentwicklung & Architektur
+                  Softwareentwicklung & Architektur (Backend, APIs, Patterns)
                 </label>
               </div>
               <div class="flex items-start">
@@ -913,14 +1949,158 @@
               </div>
               <div class="flex items-start">
                 <input
+                  id="q13-mobile"
+                  v-model="answers.q13"
+                  type="checkbox"
+                  value="Mobile Entwicklung"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q13-mobile" class="ml-3 text-gray-700">
+                  Mobile Entwicklung
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q13-infrastruktur"
+                  v-model="answers.q13"
+                  type="checkbox"
+                  value="Infrastruktur & Plattformen (Cloud, DevOps, SRE, Platform Engineering)"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q13-infrastruktur" class="ml-3 text-gray-700">
+                  Infrastruktur & Plattformen (Cloud, DevOps, SRE, Platform Engineering)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q13-observability"
+                  v-model="answers.q13"
+                  type="checkbox"
+                  value="Observability, Performance & Reliability (Monitoring, Tracing, Incident Response)"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q13-observability" class="ml-3 text-gray-700">
+                  Observability, Performance & Reliability (Monitoring, Tracing, Incident Response)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q13-ki"
+                  v-model="answers.q13"
+                  type="checkbox"
+                  value="KI, Data Science & Machine Learning"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q13-ki" class="ml-3 text-gray-700">
+                  KI, Data Science & Machine Learning
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q13-data"
+                  v-model="answers.q13"
+                  type="checkbox"
+                  value="Data Engineering & Datenplattformen (Pipelines, Warehouses, Streaming)"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q13-data" class="ml-3 text-gray-700">
+                  Data Engineering & Datenplattformen (Pipelines, Warehouses, Streaming)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q13-security"
+                  v-model="answers.q13"
+                  type="checkbox"
+                  value="Sicherheit & Datenschutz"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q13-security" class="ml-3 text-gray-700">
+                  Sicherheit & Datenschutz
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q13-testing"
+                  v-model="answers.q13"
+                  type="checkbox"
+                  value="Testing & Qualität (QA, Test Automation)"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q13-testing" class="ml-3 text-gray-700">
+                  Testing & Qualität (QA, Test Automation)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q13-hardware"
+                  v-model="answers.q13"
+                  type="checkbox"
+                  value="Hardware, Embedded, IoT & Zukunftstechnologien"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q13-hardware" class="ml-3 text-gray-700">
+                  Hardware, Embedded, IoT & Zukunftstechnologien
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q13-dx"
+                  v-model="answers.q13"
+                  type="checkbox"
+                  value="Developer Experience & Tooling (CI/CD, Build, Developer Tools)"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q13-dx" class="ml-3 text-gray-700">
+                  Developer Experience & Tooling (CI/CD, Build, Developer Tools)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q13-oss"
+                  v-model="answers.q13"
+                  type="checkbox"
+                  value="Open Source & Community"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q13-oss" class="ml-3 text-gray-700">
+                  Open Source & Community
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q13-leadership"
+                  v-model="answers.q13"
+                  type="checkbox"
+                  value="Leadership, Kultur & Zusammenarbeit"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q13-leadership" class="ml-3 text-gray-700">
+                  Leadership, Kultur & Zusammenarbeit
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
+                  id="q13-karriere"
+                  v-model="answers.q13"
+                  type="checkbox"
+                  value="Karriere & Lernen (Hiring, Skills, Weiterbildung)"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q13-karriere" class="ml-3 text-gray-700">
+                  Karriere & Lernen (Hiring, Skills, Weiterbildung)
+                </label>
+              </div>
+              <div class="flex items-start">
+                <input
                   id="q13-news"
                   v-model="answers.q13"
                   type="checkbox"
-                  value="News"
+                  value="Tech-News / Branchen-Updates"
                   class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
                 />
                 <label for="q13-news" class="ml-3 text-gray-700">
-                  News
+                  Tech-News / Branchen-Updates
                 </label>
               </div>
               <div class="mt-4">
@@ -939,11 +2119,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 16: Q15 -->
+        <!-- Question 22: Q15 -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              16. Wie oft nutzt du Begleitmaterialien, die in den Show Notes verlinkt sind?
+              22. Wie oft nutzt du Begleitmaterialien, die in den Show Notes verlinkt sind?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -1002,11 +2182,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 17: Q16 (Checkboxes) -->
+        <!-- Question 23: Q16 (Checkboxes) -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              17. Aus welchen Gründen (die mit dem Podcast oder der Episode zu tun haben) hast du schon mal eine Episode abgebrochen, bevor du sie zu Ende gehört hattest?
+              23. Aus welchen Gründen (die mit dem Podcast oder der Episode zu tun haben) hast du schon mal eine Episode abgebrochen, bevor du sie zu Ende gehört hattest?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
@@ -1194,11 +2374,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 18: Unsubscribe (Freitext) -->
+        <!-- Question 24: Unsubscribe (Freitext) -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <div>
             <label for="q17" class="block text-xl font-semibold text-gray-900 mb-4">
-              18. Hast du schon mal einen Podcast unsubscribed, wenn ja warum?
+              24. Hast du schon mal einen Podcast unsubscribed, wenn ja warum?
             </label>
             <textarea
               id="q17"
@@ -1210,11 +2390,11 @@
           </div>
         </section>
 
-        <!-- Question 19: Q17 (Good Podcast Criteria - Checkboxes) -->
+        <!-- Question 25: Q17 (Good Podcast Criteria - Checkboxes) -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              19. Welche Kriterien machen für dich einen richtig guten Podcast aus?
+              25. Welche Kriterien machen für dich einen richtig guten Podcast aus?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
@@ -1378,11 +2558,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 20: Q18 - Rating Frequency -->
+        <!-- Question 26: Q18 - Rating Frequency -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              20. Wie oft bewertest du Podcasts?
+              26. Wie oft bewertest du Podcasts?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -1428,11 +2608,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 21: Q18A - Rating Reasons (Conditional) -->
+        <!-- Question 27: Q18A - Rating Reasons (Conditional) -->
         <section v-if="answers.q19 !== 'Nie'" class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              21. Was veranlasst dich zu einer Bewertung des Podcasts?
+              27. Was veranlasst dich zu einer Bewertung des Podcasts?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
@@ -1536,11 +2716,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 22: Q19 - Release Rhythm -->
+        <!-- Question 28: Q19 - Release Rhythm -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              22. In welchem Rhythmus sollten neue Folgen eines Podcasts für dich erscheinen?
+              28. In welchem Rhythmus sollten neue Folgen eines Podcasts für dich erscheinen?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -1612,11 +2792,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 23: Q20 - Guests -->
+        <!-- Question 29: Q20 - Guests -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              23. Wie gern hörst du Gäste im Podcast?
+              29. Wie gern hörst du Gäste im Podcast?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -1688,11 +2868,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 24: Q22 - Audio vs Video -->
+        <!-- Question 30: Q22 - Audio vs Video -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              24. Magst du Podcasts lieber als reines Audio oder dürfen sie auch mit Video sein?
+              30. Magst du Podcasts lieber als reines Audio oder dürfen sie auch mit Video sein?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -1738,11 +2918,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 25: Q23 - Intro -->
+        <!-- Question 31: Q23 - Intro -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              25. Wie hilfreich findest du ein Intro am Anfang, das sagt, worum es in der Folge geht?
+              31. Wie hilfreich findest du ein Intro am Anfang, das sagt, worum es in der Folge geht?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -1788,11 +2968,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 26: Q24 - Outro/Summary -->
+        <!-- Question 32: Q24 - Outro/Summary -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              26. Wie wichtig ist dir ein Fazit oder eine Zusammenfassung am Ende einer Folge?
+              32. Wie wichtig ist dir ein Fazit oder eine Zusammenfassung am Ende einer Folge?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -1838,11 +3018,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 27: Q25 - Community -->
+        <!-- Question 33: Q25 - Community -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              27. Tauschst du dich mit anderen Hörer*innen über Episoden aus – z. B. in Foren, Kommentarbereichen oder einer Community des Podcasts?
+              33. Tauschst du dich mit anderen Hörer*innen über Episoden aus – z. B. in Foren, Kommentarbereichen oder einer Community des Podcasts?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -1901,11 +3081,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 28: Q26 - Diversity -->
+        <!-- Question 34: Q26 - Diversity -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              28. Wie wichtig ist es dir, dass in einem Podcast ganz unterschiedliche Personen vorkommen – z. B. Menschen unterschiedlichen Geschlechts, verschiedener Herkunft oder mit unterschiedlichen gesellschaftlichen und beruflichen Hintergründen?
+              34. Wie wichtig ist es dir, dass in einem Podcast ganz unterschiedliche Personen vorkommen – z. B. Menschen unterschiedlichen Geschlechts, verschiedener Herkunft oder mit unterschiedlichen gesellschaftlichen und beruflichen Hintergründen?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -1951,11 +3131,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 29: Q27 - Evolution -->
+        <!-- Question 35: Q27 - Evolution -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              29. Wie findest du es, wenn sich ein Podcast weiterentwickelt – z. B. durch neue Formate, veränderte Struktur oder kreative Experimente?
+              35. Wie findest du es, wenn sich ein Podcast weiterentwickelt – z. B. durch neue Formate, veränderte Struktur oder kreative Experimente?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -2001,11 +3181,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 30: Q28 - Co-determination -->
+        <!-- Question 36: Q28 - Co-determination -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              30. Ist es dir wichtig, die Themen des Podcasts mitbestimmen zu können – z. B. indem du Vorschläge oder Anregungen einbringen kannst?
+              36. Ist es dir wichtig, die Themen des Podcasts mitbestimmen zu können – z. B. indem du Vorschläge oder Anregungen einbringen kannst?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -2051,11 +3231,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 31: Q28A - Feedback Channels (Conditional) -->
+        <!-- Question 36a: Q28A - Feedback Channels (Conditional) -->
         <section v-if="answers.q28 === 'Ja, das finde ich gut – ich habe gern die Möglichkeit zur Mitwirkung'" class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              31. Wenn du Themen oder Ideen einbringen willst – was wäre für dich die beste Möglichkeit, das zu tun?
+              36a. Wenn du Themen oder Ideen einbringen willst – was wäre für dich die beste Möglichkeit, das zu tun?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
@@ -2111,11 +3291,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 32: Q29 - Discovery Channels -->
+        <!-- Question 37: Q29 - Discovery Channels -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              32. Wie bist du auf die Podcasts aufmerksam geworden, die du regelmäßig hörst?
+              37. Wie bist du auf die Podcasts aufmerksam geworden, die du regelmäßig hörst?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
@@ -2255,11 +3435,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 33: Q30 - Niche vs Broad -->
+        <!-- Question 38: Q30 - Niche vs Broad -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              33. Magst du lieber Nischen-Podcasts oder eher solche, die thematisch breit aufgestellt sind?
+              38. Magst du lieber Nischen-Podcasts oder eher solche, die thematisch breit aufgestellt sind?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -2305,11 +3485,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 34: Q31 - Final Feedback -->
+        <!-- Question 39: Q31 - Final Feedback -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <div>
             <label for="q31" class="block text-xl font-semibold text-gray-900 mb-4">
-              34. Gibt es noch etwas, das du uns sagen möchtest? Hast du Feedback zu Podcasts, die du besonders magst (oder nicht)? Möchtest du Lob, Kritik oder Themenwünsche loswerden?
+              39. Gibt es noch etwas, das du uns sagen möchtest? Hast du Feedback zu Podcasts, die du besonders magst (oder nicht)? Möchtest du Lob, Kritik oder Themenwünsche loswerden?
             </label>
             <textarea
               id="q31"
@@ -2374,6 +3554,45 @@
 
 <script setup lang="ts">
 const podcastList = [
+  'Binärgewitter',
+  'Bits & Böses - Der Tech Crime Podcast',
+  'Bits und so',
+  'Breach FM',
+  "c't uplink",
+  'Chaosradio',
+  'Click! Clack! Hack!',
+  'Code Culture',
+  'Coding Buddies',
+  'Computer und Kommunikation (Deutschlandfunk)',
+  'Kernel und Kernobstat',
+  'DAS WAR SCHON KAPUTT',
+  'Data Science Deep Dive',
+  'Der GameDev Podcast',
+  'DevCouch',
+  'Devs on Tape',
+  'Digitale Anomalien',
+  'Einfach Komplex',
+  'Engineering Kiosk',
+  'Faxinformatiker',
+  'Female TechTalk',
+  'FOCUS ON: DevOps',
+  'Urlaub im Userspace',
+  'Frauen und Technik – mit Eckert und Wolfangel',
+  'Freakshow',
+  'Gamedev für die Platte - Der Unreal Podcast',
+  'GNU/Linux.ch',
+  'heise Developer: SoftwareArchitekTOUR',
+  'Hobby Spieleentwickler Podcast',
+  'Index out of bounds',
+  'INNOQ Podcast',
+  'ISMS X-Plain',
+  'IT ist alles',
+  'IT-Berufe Podcast',
+  'IT@DB',
+  'KI-Update',
+  'Kurz informiert by heise online',
+  'Logbuch Digitalien',
+  'Logbuch: Netzpolitik',
   'Mac & i - der Apple-Podcast',
   'Mein Scrum ist kaputt!',
   'Mind the Tech',
@@ -2412,6 +3631,15 @@ const podcastList = [
 
 // Answer state - all answers stored here
 const answers = ref<Record<string, any>>({
+  q_age: '',                 // Altersgruppe (radio)
+  q_gender: '',              // Geschlecht (radio)
+  q_experience: '',          // Berufserfahrung (radio)
+  q_education: '',           // Bildungsabschluss (radio)
+  q_it: '',                  // IT-Tätigkeit (radio)
+  q_it_area: '',             // IT-Tätigkeitsbereich (radio) - conditional
+  q_it_role: '',             // Rolle (radio) - conditional
+  q_company_size: '',        // Unternehmensgröße (radio)
+  q_weekly_listening: '',    // Wöchentliche Hördauer (radio)
   q01: [],        // Podcast list (checkboxes)
   q04: '',        // Episode listening pattern (radio)
   q04a: [],       // Selection criteria (checkboxes) - conditional
