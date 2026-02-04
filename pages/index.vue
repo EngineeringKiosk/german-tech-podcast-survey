@@ -44,9 +44,9 @@
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              1. Welche deutschsprachigen Tech-Podcasts hörst du regelmäßig (mindestens eine Episode in den letzten 3 Monaten)?
+              1. Welche deutschsprachigen Tech-Podcasts hörst du regelmäßig?
             </legend>
-            <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
+            <p class="text-sm text-gray-500 mb-4">(mindestens eine Episode in den letzten 3 Monaten gehört,Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
               <div v-for="podcast in podcastList" :key="podcast" class="flex items-start">
                 <input
@@ -476,7 +476,7 @@
                   class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
                 />
                 <label for="q-it-beruehrung" class="ml-3 text-gray-700">
-                  Nein, aber ich habe viele Berührungspunkte mit Tech-Themen.
+                  Nein
                 </label>
               </div>
             </div>
@@ -1019,6 +1019,19 @@
                   3001+
                 </label>
               </div>
+              <div class="flex items-start">
+                <input
+                  id="q-company-keineangabe"
+                  v-model="answers.q_company_size"
+                  type="radio"
+                  value="Sonstige/Keine Angabe"
+                  name="q_company_size"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
+                />
+                <label for="q-company-keineangabe" class="ml-3 text-gray-700">
+                  Sonstige/Keine Angabe
+                </label>
+              </div>
             </div>
           </fieldset>
         </section>
@@ -1111,64 +1124,26 @@
             </div>
           </fieldset>
         </section>
-        <!-- Question 9: Q04 -->
+        <!-- Question 9: Q04A -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
-            <legend class="text-xl font-semibold text-gray-900 mb-4">
-              9. Hörst du bei deinen Lieblings-Podcasts jede Folge – oder suchst du dir gezielt aus, was dich interessiert?
-            </legend>
-            <div class="space-y-3">
-              <div class="flex items-start">
-                <input
-                  id="q04-jede"
-                  v-model="answers.q04"
-                  type="radio"
-                  value="Ich höre (fast) jede Folge"
-                  name="q04"
-                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
-                />
-                <label for="q04-jede" class="ml-3 text-gray-700">
-                  Ich höre (fast) jede Folge
-                </label>
-              </div>
-              <div class="flex items-start">
-                <input
-                  id="q04-gezielt"
-                  v-model="answers.q04"
-                  type="radio"
-                  value="Ich suche mir gezielt Folgen raus"
-                  name="q04"
-                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
-                />
-                <label for="q04-gezielt" class="ml-3 text-gray-700">
-                  Ich suche mir gezielt Folgen raus
-                </label>
-              </div>
-              <div class="flex items-start">
-                <input
-                  id="q04-unterschiedlich"
-                  v-model="answers.q04"
-                  type="radio"
-                  value="Unterschiedlich"
-                  name="q04"
-                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
-                />
-                <label for="q04-unterschiedlich" class="ml-3 text-gray-700">
-                  Unterschiedlich
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </section>
-
-        <!-- Question 10: Q04A (Conditional) -->
-        <section v-if="answers.q04 !== 'Ich höre (fast) jede Folge'" class="bg-white shadow-sm rounded-lg p-6">
-          <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              10. Nach welchen Kriterien wählst du aus, welche Episoden du hörst?
+              9. Nach welchen Kriterien wählst du aus, welche Episoden du hörst?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q04a-alle"
+                  v-model="answers.q04a"
+                  type="checkbox"
+                  value="Ich höre generell alle Episoden meiner Lieblingspodcasts"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q04a-alle" class="ml-3 text-gray-700">
+                  Ich höre generell alle Episoden meiner Lieblingspodcasts
+                </label>
+              </div>
               <div class="flex items-start">
                 <input
                   id="q04a-thema-interessiert"
@@ -1257,11 +1232,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 11: Formate -->
+        <!-- Question 10: Formate -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              11. Welche Podcast-Formate hörst du am liebsten?
+              10. Welche Podcast-Formate hörst du am liebsten?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
@@ -1373,15 +1348,27 @@
                   Kurzformate / Snackable (unter 15 Minuten)
                 </label>
               </div>
+              <div class="mt-4">
+                <label for="q02-freitext" class="block text-sm font-medium text-gray-700 mb-2">
+                  Sonstiges:
+                </label>
+                <input
+                  id="q02-freitext"
+                  v-model="answers.q02_freitext"
+                  type="text"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  placeholder="Weitere Formate..."
+                />
+              </div>
             </div>
           </fieldset>
         </section>
 
-        <!-- Question 12: Q05 -->
+        <!-- Question 11: Q05 -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              12. Hörst du deutschsprachige Tech-Podcasts aus privatem Interesse oder als Form von beruflicher Weiterbildung?
+              11. Hörst du deutschsprachige Tech-Podcasts aus privatem Interesse oder als Form von beruflicher Weiterbildung?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -1427,11 +1414,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 13: Q06 -->
+        <!-- Question 12: Q06 -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              13. Magst du es eher informativ und auf den Punkt - oder bevorzugst du entspanntes Geplauder?
+              12. Magst du es eher informativ und auf den Punkt - oder bevorzugst du entspanntes Geplauder?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -1477,11 +1464,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 14: Q07 -->
+        <!-- Question 13: Q07 -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              14. Hörst du tendenziell Podcast-Episoden zu Themen, in denen du dich bereits auskennst?
+              13. Hörst du tendenziell Podcast-Episoden zu Themen, in denen du dich bereits auskennst?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -1514,11 +1501,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 15: Q08 -->
+        <!-- Question 14: Q08 -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              15. Wie stehst du zu Werbung in Podcasts?
+              14. Wie stehst du zu Werbung in Podcasts?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -1564,11 +1551,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 16: Support -->
+        <!-- Question 15: Support -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              16. Hast du schon einmal einen Podcast durch eine Spende oder Subscription (Steady, Liberapay, etc) unterstützt?
+              15. Hast du schon einmal einen Podcast durch eine Spende oder Subscription (Steady, Liberapay, etc) unterstützt?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -1614,12 +1601,13 @@
           </fieldset>
         </section>
 
-        <!-- Question 17: Q08a (Conditional) -->
+        <!-- Question 16: Q08a (Conditional) -->
         <section v-if="answers.q08 !== 'Mag ich nicht'" class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
-            <legend class="text-xl font-semibold text-gray-900 mb-4">
-              17. Hast du Werbeeinblendungen bereits aktiv genutzt? (beworbene Produkte gekauft, Gutscheincodes eingelöst, etc.)
+            <legend class="text-xl font-semibold text-gray-900 mb-2">
+              16. Hast du Werbeeinblendungen bereits aktiv genutzt?
             </legend>
+            <p class="text-sm text-gray-500 mb-4">(beworbene Produkte gekauft, Gutscheincodes eingelöst, etc.)</p>
             <div class="space-y-3">
               <div class="flex items-start">
                 <input
@@ -1651,11 +1639,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 18: Q10 -->
+        <!-- Question 17: Q10 -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              18. Wie lang ist eine Episode idealerweise für dich?
+              17. Wie lang ist eine Episode idealerweise für dich?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -1753,11 +1741,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 19: Q11 (Checkboxes with Freitext) -->
+        <!-- Question 18: Q11 (Checkboxes with Freitext) -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              19. In welchem Kontext hörst du deutschsprachige Tech-Podcasts?
+              18. In welchem Kontext hörst du deutschsprachige Tech-Podcasts?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
@@ -1849,11 +1837,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 20: Q12 -->
+        <!-- Question 19: Q12 -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              20. Würdest du sagen, dass dich das Hören von Podcasts beruflich weitergebracht hat?
+              19. Würdest du sagen, dass dich das Hören von Podcasts beruflich weitergebracht hat?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -1886,11 +1874,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 20a: Q12A (Conditional) -->
+        <!-- Question 19a: Q12A (Conditional) -->
         <section v-if="answers.q12 === 'Ja'" class="bg-white shadow-sm rounded-lg p-6">
           <div>
             <label for="q12a" class="block text-xl font-semibold text-gray-900 mb-4">
-              20a. Inwiefern hast du beruflich vom Podcast-Hören profitiert?
+              19a. Inwiefern hast du beruflich vom Podcast-Hören profitiert?
             </label>
             <textarea
               id="q12a"
@@ -1902,11 +1890,11 @@
           </div>
         </section>
 
-        <!-- Question 21: Q13 (Checkboxes with Freitext) -->
+        <!-- Question 20: Q13 (Checkboxes with Freitext) -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              21. Welche Themen interessieren dich in Tech-Podcasts besonders?
+              20. Welche Themen interessieren dich in Tech-Podcasts besonders?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
@@ -2118,11 +2106,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 22: Q15 -->
+        <!-- Question 21: Q15 -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              22. Wie oft nutzt du Begleitmaterialien, die in den Show Notes verlinkt sind?
+              21. Wie oft nutzt du Begleitmaterialien, die in den Show Notes verlinkt sind?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -2181,11 +2169,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 23: Q16 (Checkboxes) -->
+        <!-- Question 22: Q16 (Checkboxes) -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              23. Aus welchen Gründen (die mit dem Podcast oder der Episode zu tun haben) hast du schon mal eine Episode abgebrochen, bevor du sie zu Ende gehört hattest?
+              22. Aus welchen Gründen (die mit dem Podcast oder der Episode zu tun haben) hast du schon mal eine Episode abgebrochen, bevor du sie zu Ende gehört hattest?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
@@ -2373,11 +2361,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 24: Unsubscribe (Freitext) -->
+        <!-- Question 23: Unsubscribe (Freitext) -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <div>
             <label for="q17" class="block text-xl font-semibold text-gray-900 mb-4">
-              24. Hast du schon mal einen Podcast unsubscribed, wenn ja warum?
+              23. Hast du schon mal einen Podcast unsubscribed, wenn ja warum?
             </label>
             <textarea
               id="q17"
@@ -2389,11 +2377,11 @@
           </div>
         </section>
 
-        <!-- Question 25: Q17 (Good Podcast Criteria - Checkboxes) -->
+        <!-- Question 24: Q17 (Good Podcast Criteria - Checkboxes) -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              25. Welche Kriterien machen für dich einen richtig guten Podcast aus?
+              24. Welche Kriterien machen für dich einen richtig guten Podcast aus?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
@@ -2557,64 +2545,26 @@
           </fieldset>
         </section>
 
-        <!-- Question 26: Q18 - Rating Frequency -->
+        <!-- Question 25: Q18A - Rating Reasons -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
-            <legend class="text-xl font-semibold text-gray-900 mb-4">
-              26. Wie oft bewertest du Podcasts?
-            </legend>
-            <div class="space-y-3">
-              <div class="flex items-start">
-                <input
-                  id="q19-nie"
-                  v-model="answers.q19"
-                  type="radio"
-                  value="Nie"
-                  name="q19"
-                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
-                />
-                <label for="q19-nie" class="ml-3 text-gray-700">
-                  Nie
-                </label>
-              </div>
-              <div class="flex items-start">
-                <input
-                  id="q19-selten"
-                  v-model="answers.q19"
-                  type="radio"
-                  value="Selten bis Gelegentlich"
-                  name="q19"
-                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
-                />
-                <label for="q19-selten" class="ml-3 text-gray-700">
-                  Selten bis Gelegentlich
-                </label>
-              </div>
-              <div class="flex items-start">
-                <input
-                  id="q19-regelmaessig"
-                  v-model="answers.q19"
-                  type="radio"
-                  value="Regelmäßig"
-                  name="q19"
-                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300"
-                />
-                <label for="q19-regelmaessig" class="ml-3 text-gray-700">
-                  Regelmäßig
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </section>
-
-        <!-- Question 27: Q18A - Rating Reasons (Conditional) -->
-        <section v-if="answers.q19 !== 'Nie'" class="bg-white shadow-sm rounded-lg p-6">
-          <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              27. Was veranlasst dich zu einer Bewertung des Podcasts?
+              25. Was veranlasst dich zu einer Bewertung des Podcasts?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
+              <div class="flex items-start">
+                <input
+                  id="q19a-keine"
+                  v-model="answers.q19a"
+                  type="checkbox"
+                  value="Ich bewerte grundsätzlich keine Podcasts"
+                  class="h-4 w-4 mt-1 text-primary-600 focus:ring-2 focus:ring-primary-500 border-gray-300 rounded"
+                />
+                <label for="q19a-keine" class="ml-3 text-gray-700">
+                  Ich bewerte grundsätzlich keine Podcasts
+                </label>
+              </div>
               <div class="flex items-start">
                 <input
                   id="q19a-begeistert"
@@ -2715,11 +2665,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 28: Q19 - Release Rhythm -->
+        <!-- Question 26: Q19 - Release Rhythm -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              28. In welchem Rhythmus sollten neue Folgen eines Podcasts für dich erscheinen?
+              26. In welchem Rhythmus sollten neue Folgen eines Podcasts für dich erscheinen?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -2791,11 +2741,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 29: Q20 - Guests -->
+        <!-- Question 27: Q20 - Guests -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              29. Wie gern hörst du Gäste im Podcast?
+              27. Wie gern hörst du Gäste im Podcast?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -2867,11 +2817,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 30: Q22 - Audio vs Video -->
+        <!-- Question 28: Q22 - Audio vs Video -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              30. Magst du Podcasts lieber als reines Audio oder dürfen sie auch mit Video sein?
+              28. Magst du Podcasts lieber als reines Audio oder dürfen sie auch mit Video sein?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -2917,11 +2867,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 31: Q23 - Intro -->
+        <!-- Question 29: Q23 - Intro -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              31. Wie hilfreich findest du ein Intro am Anfang, das sagt, worum es in der Folge geht?
+              29. Wie hilfreich findest du ein Intro am Anfang, das sagt, worum es in der Folge geht?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -2967,11 +2917,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 32: Q24 - Outro/Summary -->
+        <!-- Question 30: Q24 - Outro/Summary -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              32. Wie wichtig ist dir ein Fazit oder eine Zusammenfassung am Ende einer Folge?
+              30. Wie wichtig ist dir ein Fazit oder eine Zusammenfassung am Ende einer Folge?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -3017,12 +2967,13 @@
           </fieldset>
         </section>
 
-        <!-- Question 33: Q25 - Community -->
+        <!-- Question 31: Q25 - Community -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
-            <legend class="text-xl font-semibold text-gray-900 mb-4">
-              33. Tauschst du dich mit anderen Hörer*innen über Episoden aus – z. B. in Foren, Kommentarbereichen oder einer Community des Podcasts?
+            <legend class="text-xl font-semibold text-gray-900 mb-2">
+              31. Tauschst du dich mit anderen Hörer*innen über Episoden aus?
             </legend>
+            <p class="text-sm text-gray-500 mb-4">(z. B. in Foren, Kommentarbereichen oder einer Community des Podcasts)</p>
             <div class="space-y-3">
               <div class="flex items-start">
                 <input
@@ -3080,12 +3031,13 @@
           </fieldset>
         </section>
 
-        <!-- Question 34: Q26 - Diversity -->
+        <!-- Question 32: Q26 - Diversity -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
-            <legend class="text-xl font-semibold text-gray-900 mb-4">
-              34. Wie wichtig ist es dir, dass in einem Podcast ganz unterschiedliche Personen vorkommen – z. B. Menschen unterschiedlichen Geschlechts, verschiedener Herkunft oder mit unterschiedlichen gesellschaftlichen und beruflichen Hintergründen?
+            <legend class="text-xl font-semibold text-gray-900 mb-2">
+              32. Wie wichtig ist es dir, dass in einem Podcast ganz unterschiedliche Personen vorkommen?
             </legend>
+            <p class="text-sm text-gray-500 mb-4">(z. B. Menschen unterschiedlichen Geschlechts, verschiedener Herkunft oder mit unterschiedlichen gesellschaftlichen und beruflichen Hintergründen)</p>
             <div class="space-y-3">
               <div class="flex items-start">
                 <input
@@ -3130,12 +3082,13 @@
           </fieldset>
         </section>
 
-        <!-- Question 35: Q27 - Evolution -->
+        <!-- Question 33: Q27 - Evolution -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
-            <legend class="text-xl font-semibold text-gray-900 mb-4">
-              35. Wie findest du es, wenn sich ein Podcast weiterentwickelt – z. B. durch neue Formate, veränderte Struktur oder kreative Experimente?
+            <legend class="text-xl font-semibold text-gray-900 mb-2">
+              33. Wie findest du es, wenn sich ein Podcast weiterentwickelt?
             </legend>
+            <p class="text-sm text-gray-500 mb-4">(z. B. durch neue Formate, veränderte Struktur oder kreative Experimente)</p>
             <div class="space-y-3">
               <div class="flex items-start">
                 <input
@@ -3180,12 +3133,13 @@
           </fieldset>
         </section>
 
-        <!-- Question 36: Q28 - Co-determination -->
+        <!-- Question 34: Q28 - Co-determination -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
-            <legend class="text-xl font-semibold text-gray-900 mb-4">
-              36. Ist es dir wichtig, die Themen des Podcasts mitbestimmen zu können – z. B. indem du Vorschläge oder Anregungen einbringen kannst?
+            <legend class="text-xl font-semibold text-gray-900 mb-2">
+              34. Ist es dir wichtig, die Themen des Podcasts mitbestimmen zu können?
             </legend>
+            <p class="text-sm text-gray-500 mb-4">(z. B. indem du Vorschläge oder Anregungen einbringen kannst)</p>
             <div class="space-y-3">
               <div class="flex items-start">
                 <input
@@ -3230,11 +3184,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 36a: Q28A - Feedback Channels (Conditional) -->
+        <!-- Question 34a: Q28A - Feedback Channels (Conditional) -->
         <section v-if="answers.q28 === 'Ja, das finde ich gut – ich habe gern die Möglichkeit zur Mitwirkung'" class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              36a. Wenn du Themen oder Ideen einbringen willst – was wäre für dich die beste Möglichkeit, das zu tun?
+              34a. Wenn du Themen oder Ideen einbringen willst – was wäre für dich die beste Möglichkeit, das zu tun?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
@@ -3290,11 +3244,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 37: Q29 - Discovery Channels -->
+        <!-- Question 35: Q29 - Discovery Channels -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-2">
-              37. Wie bist du auf die Podcasts aufmerksam geworden, die du regelmäßig hörst?
+              35. Wie bist du auf die Podcasts aufmerksam geworden, die du regelmäßig hörst?
             </legend>
             <p class="text-sm text-gray-500 mb-4">(Mehrfachauswahl möglich)</p>
             <div class="space-y-3">
@@ -3434,11 +3388,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 38: Q30 - Niche vs Broad -->
+        <!-- Question 36: Q30 - Niche vs Broad -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <fieldset>
             <legend class="text-xl font-semibold text-gray-900 mb-4">
-              38. Magst du lieber Nischen-Podcasts oder eher solche, die thematisch breit aufgestellt sind?
+              36. Magst du lieber Nischen-Podcasts oder eher solche, die thematisch breit aufgestellt sind?
             </legend>
             <div class="space-y-3">
               <div class="flex items-start">
@@ -3484,11 +3438,11 @@
           </fieldset>
         </section>
 
-        <!-- Question 39: Q31 - Final Feedback -->
+        <!-- Question 37: Q31 - Final Feedback -->
         <section class="bg-white shadow-sm rounded-lg p-6">
           <div>
             <label for="q31" class="block text-xl font-semibold text-gray-900 mb-4">
-              39. Gibt es noch etwas, das du uns sagen möchtest? Hast du Feedback zu Podcasts, die du besonders magst (oder nicht)? Möchtest du Lob, Kritik oder Themenwünsche loswerden?
+              37. Gibt es noch etwas, das du uns sagen möchtest? Hast du Feedback zu Podcasts, die du besonders magst (oder nicht)? Möchtest du Lob, Kritik oder Themenwünsche loswerden?
             </label>
             <textarea
               id="q31"
@@ -3645,6 +3599,7 @@ const answers = ref<Record<string, any>>({
   q04: '',        // Episode listening pattern (radio)
   q04a: [],       // Selection criteria (checkboxes) - conditional
   q02: [],        // Formats (checkboxes)
+  q02_freitext: '',
   q05: '',        // Private vs professional (radio)
   q06: '',        // Informative vs casual (radio)
   q07: '',        // Topics you know (radio)
@@ -3662,8 +3617,7 @@ const answers = ref<Record<string, any>>({
   q16: [],        // Reasons for stopping episodes (checkboxes)
   q17: '',        // Unsubscribe reasons (textarea)
   q18: [],        // Good podcast criteria (checkboxes)
-  q19: '',        // Rating frequency (radio)
-  q19a: [],       // Rating reasons (checkboxes) - conditional
+  q19a: [],       // Rating reasons (checkboxes) - no longer conditional on q19
   q20: '',        // Release rhythm (radio)
   q21: '',        // Guests preference (radio)
   q22: '',        // Audio vs video (radio)
