@@ -62,7 +62,7 @@ export default defineNuxtConfig({
     public: {
       surveyApiUrl:
         process.env.NUXT_PUBLIC_SURVEY_API_URL ||
-        "http://localhost:3001/api/survey",
+        "https://survey.engineeringkiosk.dev/api/survey",
     },
   },
 

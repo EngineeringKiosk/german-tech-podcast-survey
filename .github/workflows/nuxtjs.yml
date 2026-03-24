@@ -32,6 +32,7 @@ jobs:
       NODE_ENV: production
       NUXT_APP_BASE_URL: "/${{ github.event.repository.name }}/"
       NUXT_NITRO_PRESET: github-pages
+      NUXT_PUBLIC_SURVEY_API_URL: "https://survey.engineeringkiosk.dev/api/survey"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
