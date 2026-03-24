@@ -1,10 +1,13 @@
 # Nuxt dev/build outputs
-.output
-.data
-.nuxt
-.nitro
-.cache
-dist
+frontend/.output
+frontend/.data
+frontend/.nuxt
+frontend/.nitro
+frontend/.cache
+frontend/dist
+
+# Server build output
+server/dist
 
 # Node dependencies
 node_modules
@@ -22,3 +25,5 @@ logs
 .env
 .env.*
 !.env.example
+!frontend/.env.example
+!server/.env.example
