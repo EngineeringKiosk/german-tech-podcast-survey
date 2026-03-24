@@ -10,4 +10,10 @@ services:
     environment:
       - PORT=${PORT:-3001}
       - CORS_ORIGIN=${CORS_ORIGIN:-http://localhost:3000}
+      - DATA_DIR=/app/data
+    volumes:
+      - survey-data:/app/data
     restart: unless-stopped
+
+volumes:
+  survey-data:

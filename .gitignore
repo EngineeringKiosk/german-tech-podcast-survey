@@ -27,3 +27,6 @@ logs
 !.env.example
 !frontend/.env.example
 !server/.env.example
+
+# Data Dir
+server/data
