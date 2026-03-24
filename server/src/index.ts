@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import { randomUUID, createHash } from "crypto";
-import { mkdir, rename, writeFile } from "fs/promises";
+import { mkdir, readdir, rename, writeFile } from "fs/promises";
 import { join } from "path";
 
 const app = express();
@@ -45,8 +45,22 @@ async function writeAtomic(filePath: string, data: string): Promise<void> {
 // ── Routes ─────────────────────────────────────────────────────────────────
 
 // Health check
-app.get("/health", (_req: Request, res: Response) => {
-  res.json({ status: "ok", timestamp: new Date().toISOString() });
+app.get("/health", async (_req: Request, res: Response) => {
+  try {
+    const files = await readdir(DATA_DIR);
+    const responseCount = files.filter((f) => f.endsWith(".json")).length;
+    res.json({
+      status: "ok",
+      timestamp: new Date().toISOString(),
+      responses: responseCount,
+    });
+  } catch {
+    res.json({
+      status: "ok",
+      timestamp: new Date().toISOString(),
+      responses: 0,
+    });
+  }
 });
 
 // Survey submission endpoint
