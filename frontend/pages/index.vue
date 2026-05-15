@@ -14,7 +14,7 @@
           Diese Umfrage ist vollständig anonym und speichert keine persönlichen Daten.
           <NuxtLink to="/privacy" class="text-primary-600 hover:text-primary-700 underline ml-1">
             Mehr zum Datenschutz
-          </NuxtLink>
+          </NuxtLink>v
         </p>
       </header>
 
@@ -48,64 +48,39 @@
         </div>
 
         <!-- Question 1: Podcast List -->
-        <SurveyCheckboxQuestion
-          name="q_podcasts"
+        <SurveyCheckboxQuestion name="q_podcasts"
           legend="1. Welche deutschsprachigen Tech-Podcasts hörst du regelmäßig?"
           subtitle="(mindestens eine Episode in den letzten 3 Monaten gehört, Mehrfachauswahl möglich)"
-          :options="podcastList"
-          v-model="answers.q_podcasts"
-        />
+          :options="podcastList" v-model="answers.q_podcasts" />
 
         <!-- Question 2: Altersgruppe -->
-        <SurveyRadioQuestion
-          name="q_age"
-          legend="2. In welcher Altersgruppe bist du?"
+        <SurveyRadioQuestion name="q_age" legend="2. In welcher Altersgruppe bist du?"
           :options="['Unter 18', '18–24', '25–34', '35–44', '45–54', '55–64', '65+', 'Keine Angabe']"
-          v-model="answers.q_age"
-        />
+          v-model="answers.q_age" />
 
         <!-- Question 3: Geschlecht -->
-        <SurveyRadioQuestion
-          name="q_gender"
-          legend="3. Wie möchtest du dich einordnen?"
-          :options="['Weiblich', 'Männlich', 'Nicht-binär', 'Keine Angabe']"
-          v-model="answers.q_gender"
-        />
+        <SurveyRadioQuestion name="q_gender" legend="3. Wie möchtest du dich einordnen?"
+          :options="['Weiblich', 'Männlich', 'Nicht-binär', 'Keine Angabe']" v-model="answers.q_gender" />
 
         <!-- Question 4: Berufserfahrung -->
-        <SurveyRadioQuestion
-          name="q_experience"
-          legend="4. Wie viele Jahre Berufserfahrung hast du?"
-          :options="['0–1', '2–4', '5–9', '10–14', '15+', 'Keine Angabe']"
-          v-model="answers.q_experience"
-        />
+        <SurveyRadioQuestion name="q_experience" legend="4. Wie viele Jahre Berufserfahrung hast du?"
+          :options="['0–1', '2–4', '5–9', '10–14', '15+', 'Keine Angabe']" v-model="answers.q_experience" />
 
         <!-- Question 5: Bildung -->
-        <SurveyRadioQuestion
-          name="q_education"
-          legend="5. Was ist dein höchster Bildungsabschluss?"
+        <SurveyRadioQuestion name="q_education" legend="5. Was ist dein höchster Bildungsabschluss?"
           :options="['Pflichtschule', 'Lehre', 'Matura/Abitur', 'Bachelor', 'Master/Diplom', 'Doktorat/PhD', 'Keine Angabe']"
-          v-model="answers.q_education"
-        />
+          v-model="answers.q_education" />
 
         <!-- Question 6: IT-Tätigkeit -->
-        <SurveyRadioQuestion
-          name="q_it"
-          legend="6. Bist du im IT-Bereich tätig?"
-          :options="[
-            'Ja, ich arbeite im IT-Bereich.',
-            'Ja, ich absolviere derzeit eine Ausbildung, ein Studium, eine Weiterbildung o. ä. im IT-Bereich.',
-            'Nein, aber ich habe viele Berührungspunkte mit Tech-Themen.',
-          ]"
-          v-model="answers.q_it"
-        />
+        <SurveyRadioQuestion name="q_it" legend="6. Bist du im IT-Bereich tätig?" :options="[
+          'Ja, ich arbeite im IT-Bereich.',
+          'Ja, ich absolviere derzeit eine Ausbildung, ein Studium, eine Weiterbildung o. ä. im IT-Bereich.',
+          'Nein, aber ich habe viele Berührungspunkte mit Tech-Themen.',
+        ]" v-model="answers.q_it" />
 
         <!-- Question 6a: Tätigkeitsbereich (Conditional) -->
-        <SurveyRadioQuestion
-          v-if="answers.q_it === 'Ja, ich arbeite im IT-Bereich.'"
-          name="q_it_area"
-          legend="6a. Was ist dein Tätigkeitsbereich oder trifft am ehesten zu?"
-          :options="[
+        <SurveyRadioQuestion v-if="answers.q_it === 'Ja, ich arbeite im IT-Bereich.'" name="q_it_area"
+          legend="6a. Was ist dein Tätigkeitsbereich oder trifft am ehesten zu?" :options="[
             'Softwareentwicklung (Frontend, Backend, Fullstack)',
             'Mobile Entwicklung',
             'Embedded / Firmware / IoT',
@@ -130,16 +105,11 @@
             'Developer Relations / Developer Advocacy',
             'Forschung / Wissenschaft',
             'Anderer Tätigkeitsbereich',
-          ]"
-          v-model="answers.q_it_area"
-        />
+          ]" v-model="answers.q_it_area" />
 
         <!-- Question 6b: Rolle (Conditional) -->
-        <SurveyRadioQuestion
-          v-if="answers.q_it === 'Ja, ich arbeite im IT-Bereich.'"
-          name="q_it_role"
-          legend="6b. Was ist deine Rolle?"
-          :options="[
+        <SurveyRadioQuestion v-if="answers.q_it === 'Ja, ich arbeite im IT-Bereich.'" name="q_it_role"
+          legend="6b. Was ist deine Rolle?" :options="[
             'Geschäftsführung / C-Level (z. B. CTO, CIO, CEO)',
             'Bereichsleitung / Abteilungsleitung (z. B. Head of Engineering, IT-Leitung)',
             'Teamleitung (z. B. Engineering Manager)',
@@ -148,21 +118,15 @@
             'Fachkraft (z. B. Softwareentwickler*in, Data Analyst, IT-Administrator*in)',
             'Berufseinsteiger*in / Junior',
             'Forschung',
-          ]"
-          v-model="answers.q_it_role"
-        />
+          ]" v-model="answers.q_it_role" />
 
         <!-- Question 7: Unternehmensgröße -->
-        <SurveyRadioQuestion
-          name="q_company_size"
-          legend="7. Wie groß ist dein Unternehmen (Anzahl Mitarbeitende)?"
+        <SurveyRadioQuestion name="q_company_size" legend="7. Wie groß ist dein Unternehmen (Anzahl Mitarbeitende)?"
           :options="['1 (Solo / Selbstständig)', '2–10', '11–50', '51–200', '201–1000', '1.001–3000', '3001+', 'Sonstige/Keine Angabe']"
-          v-model="answers.q_company_size"
-        />
+          v-model="answers.q_company_size" />
 
         <!-- Question 8: Wöchentliche Hördauer -->
-        <SurveyRadioQuestion
-          name="q_weekly_listening"
+        <SurveyRadioQuestion name="q_weekly_listening"
           legend="8. Wie viel Zeit nutzt du pro Woche circa, um deutschsprachige Tech-Podcasts zu konsumieren?"
           :options="[
             'Weniger als 30 Minuten',
@@ -171,16 +135,12 @@
             '2–4 Stunden',
             'Mehr als 4 Stunden',
             'Sehr unterschiedlich / kann ich schwer sagen',
-          ]"
-          v-model="answers.q_weekly_listening"
-        />
+          ]" v-model="answers.q_weekly_listening" />
 
         <!-- Question 9: Episodenauswahl-Kriterien -->
-        <SurveyCheckboxQuestion
-          name="q_episode_selection"
+        <SurveyCheckboxQuestion name="q_episode_selection"
           legend="9. Nach welchen Kriterien wählst du aus, welche Episoden du hörst?"
-          subtitle="(Mehrfachauswahl möglich)"
-          :options="[
+          subtitle="(Mehrfachauswahl möglich)" :options="[
             'Ich höre generell alle Episoden meiner Lieblingspodcasts',
             'Das Thema interessiert mich generell',
             'Das Thema ist gerade nützlich für mich (beschäftige mich z.B. gerade beruflich damit)',
@@ -189,16 +149,11 @@
             'Die Episoden-Länge passt gut in meinen Zeitrahmen',
             'Ich habe die Folge von einer Person empfohlen bekommen',
             'Ich habe die Folge vom Algorithmus empfohlen bekommen',
-          ]"
-          v-model="answers.q_episode_selection"
-        />
+          ]" v-model="answers.q_episode_selection" />
 
         <!-- Question 10: Formate -->
-        <SurveyCheckboxQuestion
-          name="q_formats"
-          legend="10. Welche Podcast-Formate hörst du am liebsten?"
-          subtitle="(Mehrfachauswahl möglich)"
-          :options="[
+        <SurveyCheckboxQuestion name="q_formats" legend="10. Welche Podcast-Formate hörst du am liebsten?"
+          subtitle="(Mehrfachauswahl möglich)" :options="[
             'Interviews',
             'News / Updates',
             'Deep Dives (ein Thema in Tiefe)',
@@ -208,75 +163,49 @@
             'Q&A / Hörerfragen',
             'Tutorials / How-to (praxisnah, Schritt für Schritt)',
             'Kurzformate / Snackable (unter 15 Minuten)',
-          ]"
-          v-model="answers.q_formats"
-          freitextLabel="Sonstiges:"
-          v-model:freitextModelValue="answers.q_formats_other"
-          freitextPlaceholder="Weitere Formate..."
-        />
+          ]" v-model="answers.q_formats" freitextLabel="Sonstiges:"
+          v-model:freitextModelValue="answers.q_formats_other" freitextPlaceholder="Weitere Formate..." />
 
         <!-- Question 11: Motivation -->
-        <SurveyRadioQuestion
-          name="q_listening_motivation"
+        <SurveyRadioQuestion name="q_listening_motivation"
           legend="11. Hörst du deutschsprachige Tech-Podcasts aus privatem Interesse oder als Form von beruflicher Weiterbildung?"
           :options="[
             'Vorwiegend privates Interesse',
             'Vorwiegend berufliches Interesse',
             'Beides gleichermaßen',
-          ]"
-          v-model="answers.q_listening_motivation"
-        />
+          ]" v-model="answers.q_listening_motivation" />
 
         <!-- Question 12: Inhaltsstil -->
-        <SurveyRadioQuestion
-          name="q_content_style"
+        <SurveyRadioQuestion name="q_content_style"
           legend="12. Magst du es eher informativ und auf den Punkt - oder bevorzugst du entspanntes Geplauder?"
           :options="[
             'Informativ und auf den Punkt, bitte!',
             'Ein bisschen Plaudern ist okay, solange wir beim Thema bleiben.',
             'Ich höre gern auch Off-Topic-Gespräche oder persönliche Anekdoten - die Podcaster*innen dürfen auch mal abschweifen.',
-          ]"
-          v-model="answers.q_content_style"
-        />
+          ]" v-model="answers.q_content_style" />
 
         <!-- Question 13: Bekannte Themen -->
-        <SurveyRadioQuestion
-          name="q_familiar_topics"
+        <SurveyRadioQuestion name="q_familiar_topics"
           legend="13. Hörst du tendenziell Podcast-Episoden zu Themen, in denen du dich bereits auskennst?"
-          :options="['Ja', 'Nein']"
-          v-model="answers.q_familiar_topics"
-        />
+          :options="['Ja', 'Nein']" v-model="answers.q_familiar_topics" />
 
         <!-- Question 14: Werbung -->
-        <SurveyRadioQuestion
-          name="q_advertising"
-          legend="14. Wie stehst du zu Werbung in Podcasts?"
-          :options="['Find ich interessant', 'Stört mich nicht', 'Mag ich nicht']"
-          v-model="answers.q_advertising"
-        />
+        <SurveyRadioQuestion name="q_advertising" legend="14. Wie stehst du zu Werbung in Podcasts?"
+          :options="['Find ich interessant', 'Stört mich nicht', 'Mag ich nicht']" v-model="answers.q_advertising" />
 
         <!-- Question 15: Finanzieller Support -->
-        <SurveyRadioQuestion
-          name="q_financial_support"
+        <SurveyRadioQuestion name="q_financial_support"
           legend="15. Hast du schon einmal einen Podcast durch eine Spende oder Subscription (Steady, Liberapay, etc) unterstützt?"
-          :options="['Ja, regelmäßig', 'Ja, gelegentlich bis selten', 'Nein']"
-          v-model="answers.q_financial_support"
-        />
+          :options="['Ja, regelmäßig', 'Ja, gelegentlich bis selten', 'Nein']" v-model="answers.q_financial_support" />
 
         <!-- Question 16: Werbung genutzt (Conditional) -->
-        <SurveyRadioQuestion
-          v-if="answers.q_advertising !== 'Mag ich nicht'"
-          name="q_advertising_used"
+        <SurveyRadioQuestion v-if="answers.q_advertising !== 'Mag ich nicht'" name="q_advertising_used"
           legend="16. Hast du Werbeeinblendungen bereits aktiv genutzt?"
-          subtitle="(beworbene Produkte gekauft, Gutscheincodes eingelöst, etc.)"
-          :options="['Ja', 'Nein']"
-          v-model="answers.q_advertising_used"
-        />
+          subtitle="(beworbene Produkte gekauft, Gutscheincodes eingelöst, etc.)" :options="['Ja', 'Nein']"
+          v-model="answers.q_advertising_used" />
 
         <!-- Question 17: Episodenlänge -->
-        <SurveyRadioQuestion
-          name="q_episode_length"
-          legend="17. Wie lang ist eine Episode idealerweise für dich?"
+        <SurveyRadioQuestion name="q_episode_length" legend="17. Wie lang ist eine Episode idealerweise für dich?"
           :options="[
             'Unter 15 Minuten',
             '15 - 30 Minuten',
@@ -285,15 +214,11 @@
             '60 - 90 Minuten',
             'Über 90 Minuten',
             'Ist mir egal / bin flexibel',
-          ]"
-          v-model="answers.q_episode_length"
-        />
+          ]" v-model="answers.q_episode_length" />
 
         <!-- Question 18: Hörkontext -->
-        <SurveyCheckboxQuestion
-          name="q_listening_context"
-          legend="18. In welchem Kontext hörst du deutschsprachige Tech-Podcasts?"
-          subtitle="(Mehrfachauswahl möglich)"
+        <SurveyCheckboxQuestion name="q_listening_context"
+          legend="18. In welchem Kontext hörst du deutschsprachige Tech-Podcasts?" subtitle="(Mehrfachauswahl möglich)"
           :options="[
             'Beim Pendeln',
             'Während der Arbeit oder beim Coden',
@@ -301,35 +226,23 @@
             'Ich nehme mir bewusst Zeit dafür / ich mache nichts nebenher',
             'Ich höre Podcasts nebenbei, z. B. beim Spazieren, Kochen, Haushalt, Sport, etc.',
             'Zum Einschlafen',
-          ]"
-          v-model="answers.q_listening_context"
-          freitextLabel="Sonstiges:"
-          v-model:freitextModelValue="answers.q_listening_context_other"
-          freitextPlaceholder="Weitere Kontexte..."
-        />
+          ]" v-model="answers.q_listening_context" freitextLabel="Sonstiges:"
+          v-model:freitextModelValue="answers.q_listening_context_other" freitextPlaceholder="Weitere Kontexte..." />
 
         <!-- Question 19: Beruflicher Nutzen -->
-        <SurveyRadioQuestion
-          name="q_career_benefit"
+        <SurveyRadioQuestion name="q_career_benefit"
           legend="19. Würdest du sagen, dass dich das Hören von Podcasts beruflich weitergebracht hat?"
-          :options="['Ja', 'Nein']"
-          v-model="answers.q_career_benefit"
-        />
+          :options="['Ja', 'Nein']" v-model="answers.q_career_benefit" />
 
         <!-- Question 19a: Details beruflicher Nutzen (Conditional) -->
-        <SurveyTextareaQuestion
-          v-if="answers.q_career_benefit === 'Ja'"
-          id="q12a"
+        <SurveyTextareaQuestion v-if="answers.q_career_benefit === 'Ja'" id="q12a"
           legend="19a. Inwiefern hast du beruflich vom Podcast-Hören profitiert?"
           v-model="answers.q_career_benefit_details"
-          placeholder="Beschreibe, wie Podcasts dir beruflich geholfen haben..."
-        />
+          placeholder="Beschreibe, wie Podcasts dir beruflich geholfen haben..." />
 
         <!-- Question 20: Themen -->
-        <SurveyCheckboxQuestion
-          name="q_topics"
-          legend="20. Welche Themen interessieren dich in Tech-Podcasts besonders?"
-          subtitle="(Mehrfachauswahl möglich)"
+        <SurveyCheckboxQuestion name="q_topics"
+          legend="20. Welche Themen interessieren dich in Tech-Podcasts besonders?" subtitle="(Mehrfachauswahl möglich)"
           :options="[
             'Business & Tech-Strategie',
             'Softwareentwicklung & Architektur (Backend, APIs, Patterns)',
@@ -347,32 +260,22 @@
             'Leadership, Kultur & Zusammenarbeit',
             'Karriere & Lernen (Hiring, Skills, Weiterbildung)',
             'Tech-News / Branchen-Updates',
-          ]"
-          v-model="answers.q_topics"
-          freitextLabel="Weitere Themen:"
-          v-model:freitextModelValue="answers.q_topics_other"
-          freitextPlaceholder="Weitere Themen..."
-        />
+          ]" v-model="answers.q_topics" freitextLabel="Weitere Themen:"
+          v-model:freitextModelValue="answers.q_topics_other" freitextPlaceholder="Weitere Themen..." />
 
         <!-- Question 21: Show Notes Nutzung -->
-        <SurveyRadioQuestion
-          name="q_shownotes_usage"
-          legend="21. Wie oft nutzt du Begleitmaterialien, die in den Show Notes verlinkt sind?"
-          :options="[
+        <SurveyRadioQuestion name="q_shownotes_usage"
+          legend="21. Wie oft nutzt du Begleitmaterialien, die in den Show Notes verlinkt sind?" :options="[
             'Nie, ich höre nur den Podcast',
             'Selten bis gelegentlich',
             'Häufig',
             'Ich wusste nicht, dass es solche Materialien gibt oder habe es noch nicht gesehen',
-          ]"
-          v-model="answers.q_shownotes_usage"
-        />
+          ]" v-model="answers.q_shownotes_usage" />
 
         <!-- Question 22: Episodenabbruch-Gründe -->
-        <SurveyCheckboxQuestion
-          name="q_skip_reasons"
+        <SurveyCheckboxQuestion name="q_skip_reasons"
           legend="22. Aus welchen Gründen (die mit dem Podcast oder der Episode zu tun haben) hast du schon mal eine Episode abgebrochen, bevor du sie zu Ende gehört hattest?"
-          subtitle="(Mehrfachauswahl möglich)"
-          :options="[
+          subtitle="(Mehrfachauswahl möglich)" :options="[
             'Die Episode war zu langatmig',
             'Die Tonqualität war schlecht',
             'Das Thema war doch nicht so interessant wie erwartet',
@@ -388,23 +291,16 @@
             'Die Sprechweise war nicht professionell genug (z.B. viele Pausen, viele Ähms, undeutliche Sprache, …)',
             'Wegen (zu vielen) Werbeeinblendungen',
             'Ich breche Episoden nicht ab / Ich breche Episoden nur aus persönlichen Gründen ab',
-          ]"
-          v-model="answers.q_skip_reasons"
-        />
+          ]" v-model="answers.q_skip_reasons" />
 
         <!-- Question 23: Unsubscribe-Gründe -->
-        <SurveyTextareaQuestion
-          id="q17"
-          legend="23. Hast du schon mal einen Podcast unsubscribed, wenn ja warum?"
-          v-model="answers.q_unsubscribe_reasons"
-        />
+        <SurveyTextareaQuestion id="q17" legend="23. Hast du schon mal einen Podcast unsubscribed, wenn ja warum?"
+          v-model="answers.q_unsubscribe_reasons" />
 
         <!-- Question 24: Qualitätskriterien -->
-        <SurveyCheckboxQuestion
-          name="q_quality_criteria"
+        <SurveyCheckboxQuestion name="q_quality_criteria"
           legend="24. Welche Kriterien machen für dich einen richtig guten Podcast aus?"
-          subtitle="(Mehrfachauswahl möglich)"
-          :options="[
+          subtitle="(Mehrfachauswahl möglich)" :options="[
             'Inhalte mit echtem Mehrwert',
             'Fachliche Tiefe',
             'Verständliche Vermittlung auch komplexer Themen',
@@ -418,15 +314,11 @@
             'Gute Shownotes & weiterführende Materialien',
             'Der Podcast regt zum Nachdenken an oder inspiriert',
             'Kapitelmarken (Chapter Marks)',
-          ]"
-          v-model="answers.q_quality_criteria"
-        />
+          ]" v-model="answers.q_quality_criteria" />
 
         <!-- Question 25: Bewertungsgründe -->
-        <SurveyCheckboxQuestion
-          name="q_rating_reasons"
-          legend="25. Was veranlasst dich zu einer Bewertung des Podcasts?"
-          subtitle="(Mehrfachauswahl möglich)"
+        <SurveyCheckboxQuestion name="q_rating_reasons"
+          legend="25. Was veranlasst dich zu einer Bewertung des Podcasts?" subtitle="(Mehrfachauswahl möglich)"
           :options="[
             'Ich bewerte grundsätzlich keine Podcasts',
             'Ich war begeistert / enttäuscht von einer bestimmten Episode',
@@ -437,142 +329,99 @@
             'Ich möchte konstruktives Feedback geben',
             'Ich wurde auf Social Media oder im Newsletter daran erinnert',
             'Ich kenne die Macher*innen persönlich / aus der Community',
-          ]"
-          v-model="answers.q_rating_reasons"
-        />
+          ]" v-model="answers.q_rating_reasons" />
 
         <!-- Question 26: Veröffentlichungsrhythmus -->
-        <SurveyRadioQuestion
-          name="q_release_rhythm"
+        <SurveyRadioQuestion name="q_release_rhythm"
           legend="26. In welchem Rhythmus sollten neue Folgen eines Podcasts für dich erscheinen?"
           :options="['Mehrmals pro Woche', 'Wöchentlich', 'Alle zwei Wochen', 'Monatlich', 'Ist mir egal']"
-          v-model="answers.q_release_rhythm"
-        />
+          v-model="answers.q_release_rhythm" />
 
         <!-- Question 27: Gäste -->
-        <SurveyRadioQuestion
-          name="q_guests"
-          legend="27. Wie gern hörst du Gäste im Podcast?"
-          :options="[
-            'Sehr gern, spannende Gäste sind für mich ein Highlight',
-            'Gern, aber es kommt auf die Person oder das Thema an',
-            'Ist mir egal, Hauptsache, die Folge ist gut gemacht',
-            'Nicht so gern, ich mag es lieber, wenn Hosts unter sich bleiben',
-            'Gar nicht, ich finde Gäste eher störend',
-          ]"
-          v-model="answers.q_guests"
-        />
+        <SurveyRadioQuestion name="q_guests" legend="27. Wie gern hörst du Gäste im Podcast?" :options="[
+          'Sehr gern, spannende Gäste sind für mich ein Highlight',
+          'Gern, aber es kommt auf die Person oder das Thema an',
+          'Ist mir egal, Hauptsache, die Folge ist gut gemacht',
+          'Nicht so gern, ich mag es lieber, wenn Hosts unter sich bleiben',
+          'Gar nicht, ich finde Gäste eher störend',
+        ]" v-model="answers.q_guests" />
 
         <!-- Question 28: Audio vs. Video -->
-        <SurveyRadioQuestion
-          name="q_audio_video"
-          legend="28. Magst du Podcasts lieber als reines Audio oder dürfen sie auch mit Video sein?"
-          :options="[
+        <SurveyRadioQuestion name="q_audio_video"
+          legend="28. Magst du Podcasts lieber als reines Audio oder dürfen sie auch mit Video sein?" :options="[
             'Ich bevorzuge reine Audio-Podcasts',
             'Ich schaue Podcasts lieber als Video',
             'Ist mir egal',
-          ]"
-          v-model="answers.q_audio_video"
-        />
+          ]" v-model="answers.q_audio_video" />
 
         <!-- Question 29: Intro -->
-        <SurveyRadioQuestion
-          name="q_intro"
-          legend="29. Wie hilfreich findest du ein Intro am Anfang, das sagt, worum es in der Folge geht?"
-          :options="[
+        <SurveyRadioQuestion name="q_intro"
+          legend="29. Wie hilfreich findest du ein Intro am Anfang, das sagt, worum es in der Folge geht?" :options="[
             'Hilfreich – so weiß ich gleich, worauf ich mich einlasse',
             'Neutral – ist mir nicht so wichtig',
             'Nicht hilfreich/ich skippe Intros',
-          ]"
-          v-model="answers.q_intro"
-        />
+          ]" v-model="answers.q_intro" />
 
         <!-- Question 30: Outro/Zusammenfassung -->
-        <SurveyRadioQuestion
-          name="q_outro"
-          legend="30. Wie wichtig ist dir ein Fazit oder eine Zusammenfassung am Ende einer Folge?"
-          :options="[
+        <SurveyRadioQuestion name="q_outro"
+          legend="30. Wie wichtig ist dir ein Fazit oder eine Zusammenfassung am Ende einer Folge?" :options="[
             'Wichtig – finde ich nützlich und hilfreich',
             'Ist mir egal',
             'Lieber weglassen, ist für mich überflüssig',
-          ]"
-          v-model="answers.q_outro"
-        />
+          ]" v-model="answers.q_outro" />
 
         <!-- Question 31: Community -->
-        <SurveyRadioQuestion
-          name="q_community"
-          legend="31. Tauschst du dich mit anderen Hörer*innen über Episoden aus?"
-          subtitle="(z. B. in Foren, Kommentarbereichen oder einer Community des Podcasts)"
-          :options="[
+        <SurveyRadioQuestion name="q_community" legend="31. Tauschst du dich mit anderen Hörer*innen über Episoden aus?"
+          subtitle="(z. B. in Foren, Kommentarbereichen oder einer Community des Podcasts)" :options="[
             'Ja, regelmäßig',
             'Schon mal gemacht, aber nicht regelmäßig',
             'Nein',
             'Ich wusste nicht, dass es solche Möglichkeiten gibt',
-          ]"
-          v-model="answers.q_community"
-        />
+          ]" v-model="answers.q_community" />
 
         <!-- Question 32: Diversität -->
-        <SurveyRadioQuestion
-          name="q_diversity"
+        <SurveyRadioQuestion name="q_diversity"
           legend="32. Wie wichtig ist es dir, dass in einem Podcast ganz unterschiedliche Personen vorkommen?"
           subtitle="(z. B. Menschen unterschiedlichen Geschlechts, verschiedener Herkunft oder mit unterschiedlichen gesellschaftlichen und beruflichen Hintergründen)"
           :options="[
             'Sehr wichtig – ich achte aktiv darauf und finde es bereichernd',
             'Schön, wenn\'s passiert – aber kein Muss für mich',
             'Ist mir nicht so wichtig, ich achte mehr auf die Inhalte',
-          ]"
-          v-model="answers.q_diversity"
-        />
+          ]" v-model="answers.q_diversity" />
 
         <!-- Question 33: Weiterentwicklung -->
-        <SurveyRadioQuestion
-          name="q_evolution"
-          legend="33. Wie findest du es, wenn sich ein Podcast weiterentwickelt?"
-          subtitle="(z. B. durch neue Formate, veränderte Struktur oder kreative Experimente)"
-          :options="[
+        <SurveyRadioQuestion name="q_evolution" legend="33. Wie findest du es, wenn sich ein Podcast weiterentwickelt?"
+          subtitle="(z. B. durch neue Formate, veränderte Struktur oder kreative Experimente)" :options="[
             'Finde ich super – Abwechslung hält den Podcast lebendig',
             'Neutral / Kommt drauf an – solange die Inhalte und Qualität stimmen',
             'Ich mag lieber Verlässlichkeit – bitte keine allzu großen Änderungen',
-          ]"
-          v-model="answers.q_evolution"
-        />
+          ]" v-model="answers.q_evolution" />
 
         <!-- Question 34: Mitbestimmung -->
-        <SurveyRadioQuestion
-          name="q_codetermination"
+        <SurveyRadioQuestion name="q_codetermination"
           legend="34. Ist es dir wichtig, die Themen des Podcasts mitbestimmen zu können?"
-          subtitle="(z. B. indem du Vorschläge oder Anregungen einbringen kannst)"
-          :options="[
+          subtitle="(z. B. indem du Vorschläge oder Anregungen einbringen kannst)" :options="[
             'Ja, das finde ich gut – ich habe gern die Möglichkeit zur Mitwirkung',
             'Kann nett sein – aber ich nutze solche Angebote eher selten',
             'Nein, das ist mir nicht wichtig',
-          ]"
-          v-model="answers.q_codetermination"
-        />
+          ]" v-model="answers.q_codetermination" />
 
         <!-- Question 34a: Feedback-Kanäle (Conditional) -->
         <SurveyCheckboxQuestion
           v-if="answers.q_codetermination === 'Ja, das finde ich gut – ich habe gern die Möglichkeit zur Mitwirkung'"
           name="q_feedback_channels"
           legend="34a. Wenn du Themen oder Ideen einbringen willst – was wäre für dich die beste Möglichkeit, das zu tun?"
-          subtitle="(Mehrfachauswahl möglich)"
-          :options="[
+          subtitle="(Mehrfachauswahl möglich)" :options="[
             'In einer Community-Plattform (z. B. Discord, Mastodon, ...)',
             'Über direkte Rückmeldung (z. B. E-Mail)',
             'Über Social Media (LinkedIn, Instagram, Facebook)',
             'In einem Kommentarbereich (z. B. unter der Folge)',
-          ]"
-          v-model="answers.q_feedback_channels"
-        />
+          ]" v-model="answers.q_feedback_channels" />
 
         <!-- Question 35: Entdeckungskanäle -->
-        <SurveyCheckboxQuestion
-          name="q_discovery"
+        <SurveyCheckboxQuestion name="q_discovery"
           legend="35. Wie bist du auf die Podcasts aufmerksam geworden, die du regelmäßig hörst?"
-          subtitle="(Mehrfachauswahl möglich)"
-          :options="[
+          subtitle="(Mehrfachauswahl möglich)" :options="[
             'Über die Suche oder Empfehlungen in meiner Podcast-App',
             'Durch Freund*innen oder Bekannte',
             'Durch Kolleg*innen oder im beruflichen Umfeld',
@@ -584,29 +433,21 @@
             'Ich kannte die Person(en), die den Podcast machen',
             'Zufällig beim Stöbern / Scrollen',
             'Ich weiß es nicht mehr',
-          ]"
-          v-model="answers.q_discovery"
-        />
+          ]" v-model="answers.q_discovery" />
 
         <!-- Question 36: Nische vs. breit -->
-        <SurveyRadioQuestion
-          name="q_niche_vs_broad"
+        <SurveyRadioQuestion name="q_niche_vs_broad"
           legend="36. Magst du lieber Nischen-Podcasts oder eher solche, die thematisch breit aufgestellt sind?"
           :options="[
             'Ich mag eher Nischenformate, die sich intensiv mit einem klaren Thema beschäftigen',
             'Ich finde eher ein breites, abwechslungsreiches Themenfeld spannender',
             'Beides',
-          ]"
-          v-model="answers.q_niche_vs_broad"
-        />
+          ]" v-model="answers.q_niche_vs_broad" />
 
         <!-- Question 37: Offenes Feedback -->
-        <SurveyTextareaQuestion
-          id="q31"
+        <SurveyTextareaQuestion id="q31"
           legend="37. Gibt es noch etwas, das du uns sagen möchtest? Hast du Feedback zu Podcasts, die du besonders magst (oder nicht)? Möchtest du Lob, Kritik oder Themenwünsche loswerden?"
-          v-model="answers.q_open_feedback"
-          :rows="6"
-        />
+          v-model="answers.q_open_feedback" :rows="6" />
 
         <!-- Email notification opt-in -->
         <section class="bg-blue-50 border border-blue-100 shadow-sm rounded-lg p-6">
