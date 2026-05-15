@@ -2,12 +2,13 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import { randomUUID, createHash } from "crypto";
-import { mkdir, readdir, rename, writeFile } from "fs/promises";
+import { mkdir, readdir, readFile, rename, writeFile } from "fs/promises";
 import { join } from "path";
 
 const app = express();
 const port = parseInt(process.env.PORT || "3001", 10);
 const DATA_DIR = process.env.DATA_DIR || join(process.cwd(), "data");
+const DOWNLOAD_TOKEN = process.env.DOWNLOAD_TOKEN || "";
 
 // Ensure data directory exists on startup
 await mkdir(DATA_DIR, { recursive: true });
@@ -123,6 +124,37 @@ app.post("/api/survey", async (req: Request, res: Response) => {
     res.status(201).json({ message: "Survey submitted successfully" });
   } catch (error) {
     console.error("Error processing survey submission:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// Download all survey responses as a merged JSON array
+app.get("/api/download", async (req: Request, res: Response) => {
+  const token = req.query.token;
+  if (!DOWNLOAD_TOKEN || !token || token !== DOWNLOAD_TOKEN) {
+    res.status(401).json({ error: "Unauthorized" });
+    return;
+  }
+
+  try {
+    const files = (await readdir(DATA_DIR)).filter((f) => f.endsWith(".json"));
+    files.sort();
+
+    const records = await Promise.all(
+      files.map(async (f) => {
+        const raw = await readFile(join(DATA_DIR, f), "utf8");
+        return JSON.parse(raw);
+      }),
+    );
+
+    res.setHeader("Content-Type", "application/json");
+    res.setHeader(
+      "Content-Disposition",
+      `attachment; filename="survey-responses-${new Date().toISOString().replace(/[:.]/g, "-")}.json"`,
+    );
+    res.json(records);
+  } catch (error) {
+    console.error("Error reading survey responses:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
