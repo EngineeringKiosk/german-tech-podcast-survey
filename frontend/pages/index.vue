@@ -14,7 +14,7 @@
           Diese Umfrage ist vollständig anonym und speichert keine persönlichen Daten.
           <NuxtLink to="/privacy" class="text-primary-600 hover:text-primary-700 underline ml-1">
             Mehr zum Datenschutz
-          </NuxtLink>v
+          </NuxtLink>
         </p>
       </header>
 
