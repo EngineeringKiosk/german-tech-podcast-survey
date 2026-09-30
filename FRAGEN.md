@@ -163,9 +163,9 @@
 - Frauen und Technik – mit Eckert und Wolfangel
 - Freakshow
 - Gamedev für die Platte - Der Unreal Podcast
+- GameDev nach Feierabend
 - GNU/Linux.ch
 - heise Developer: SoftwareArchitekTOUR
-- Hobby Spieleentwickler Podcast
 - Index out of bounds
 - INNOQ Podcast
 - ISMS X-Plain
