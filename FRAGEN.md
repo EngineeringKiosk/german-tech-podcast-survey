@@ -142,6 +142,7 @@
 - Bits & Böses - Der Tech Crime Podcast
 - Bits und so
 - Breach FM
+- BuzzZoom
 - c't uplink
 - Chaosradio
 - Click! Clack! Hack!
@@ -175,6 +176,7 @@
 - IT@DB
 - KI-Update
 - Kurz informiert by heise online
+- Linux-Magazin Podcast
 - Logbuch Digitalien
 - Logbuch: Netzpolitik
 - Mac & i - der Apple-Podcast
