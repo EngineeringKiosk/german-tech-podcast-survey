@@ -1,0 +1,42 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:best-practices", "schedule:monthly"],
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "schedule": ["at any time"],
+    "minimumReleaseAge": "0 days"
+  },
+  "prConcurrentLimit": 5,
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 5am on the first day of the month"]
+  },
+  "packageRules": [
+    {
+      "description": "14-day stability period before proposing updates (supply-chain safety)",
+      "matchManagers": ["npm", "dockerfile", "github-actions"],
+      "minimumReleaseAge": "14 days"
+    },
+    {
+      "description": "Group Nuxt ecosystem updates",
+      "groupName": "Nuxt ecosystem",
+      "matchPackageNames": ["nuxt", "/^@nuxt//", "/^@nuxtjs//", "vue", "vue-router"]
+    },
+    {
+      "description": "Group Express ecosystem updates",
+      "groupName": "Express ecosystem",
+      "matchPackageNames": ["express", "cors", "helmet", "@types/express", "@types/cors"]
+    },
+    {
+      "description": "Keep @types/node in line with the Node.js major of the Docker image",
+      "matchPackageNames": ["@types/node"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
+      "description": "Require dashboard approval for major updates",
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    }
+  ]
+}
