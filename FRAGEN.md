@@ -52,7 +52,7 @@
 ---
 
 ### 5. IT-Tätigkeit [Q01]
-**Bist du im IT-Bereich tätig?**
+**Bist du im Tech- bzw. IT-Bereich tätig?**
 
 - Ja, ich arbeite im IT-Bereich.
 - Ja, ich absolviere derzeit eine Ausbildung, ein Studium, eine Weiterbildung o. ä. im IT-Bereich.
@@ -116,6 +116,7 @@
 - 201–1000
 - 1.001–3000
 - 3001+
+- Sonstige / Keine Angabe / Arbeite nicht in einem Unternehmen
 
 ---
 
@@ -336,7 +337,8 @@
 ---
 
 ### 20. Beruflicher Nutzen [Q12]
-**Würdest du sagen, dass dich das Hören von Podcasts beruflich weitergebracht hat?**
+**Würdest du sagen, dass dich das Hören von Podcasts beruflich weitergebracht hat?**  
+*(Falls du unsicher bist, wähle bitte „Nein“.)*
 
 - Ja
 - Nein
@@ -590,6 +592,7 @@
 ## Abschließendes Feedback
 
 ### 39. Freies Feedback [Q31]
-**Gibt es noch etwas, das du uns sagen möchtest? Hast du Feedback zu Podcasts, die du besonders magst (oder nicht)? Möchtest du Lob, Kritik oder Themenwünsche loswerden?**
+**Gibt es noch etwas, das du uns sagen möchtest? Hast du Feedback zu Podcasts, die du besonders magst (oder nicht)? Möchtest du Lob, Kritik oder Themenwünsche loswerden?**  
+*(Hinweis: Auch diese Kommentare werden gemeinsam mit den Ergebnissen veröffentlicht – sie sind also nicht nur für uns intern.)*
 
 *(Freitext)*

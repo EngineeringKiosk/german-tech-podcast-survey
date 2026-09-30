@@ -72,7 +72,7 @@
           v-model="answers.q_education" />
 
         <!-- Question 6: IT-Tätigkeit -->
-        <SurveyRadioQuestion name="q_it" legend="6. Bist du im IT-Bereich tätig?" :options="[
+        <SurveyRadioQuestion name="q_it" legend="6. Bist du im Tech- bzw. IT-Bereich tätig?" :options="[
           'Ja, ich arbeite im IT-Bereich.',
           'Ja, ich absolviere derzeit eine Ausbildung, ein Studium, eine Weiterbildung o. ä. im IT-Bereich.',
           'Nein, aber ich habe viele Berührungspunkte mit Tech-Themen.',
@@ -122,7 +122,7 @@
 
         <!-- Question 7: Unternehmensgröße -->
         <SurveyRadioQuestion name="q_company_size" legend="7. Wie groß ist dein Unternehmen (Anzahl Mitarbeitende)?"
-          :options="['1 (Solo / Selbstständig)', '2–10', '11–50', '51–200', '201–1000', '1.001–3000', '3001+', 'Sonstige/Keine Angabe']"
+          :options="['1 (Solo / Selbstständig)', '2–10', '11–50', '51–200', '201–1000', '1.001–3000', '3001+', 'Sonstige / Keine Angabe / Arbeite nicht in einem Unternehmen']"
           v-model="answers.q_company_size" />
 
         <!-- Question 8: Wöchentliche Hördauer -->
@@ -232,7 +232,8 @@
         <!-- Question 19: Beruflicher Nutzen -->
         <SurveyRadioQuestion name="q_career_benefit"
           legend="19. Würdest du sagen, dass dich das Hören von Podcasts beruflich weitergebracht hat?"
-          :options="['Ja', 'Nein']" v-model="answers.q_career_benefit" />
+          subtitle="(Falls du unsicher bist, wähle bitte „Nein“.)" :options="['Ja', 'Nein']"
+          v-model="answers.q_career_benefit" />
 
         <!-- Question 19a: Details beruflicher Nutzen (Conditional) -->
         <SurveyTextareaQuestion v-if="answers.q_career_benefit === 'Ja'" id="q12a"
@@ -447,6 +448,7 @@
         <!-- Question 37: Offenes Feedback -->
         <SurveyTextareaQuestion id="q31"
           legend="37. Gibt es noch etwas, das du uns sagen möchtest? Hast du Feedback zu Podcasts, die du besonders magst (oder nicht)? Möchtest du Lob, Kritik oder Themenwünsche loswerden?"
+          subtitle="(Hinweis: Auch diese Kommentare werden gemeinsam mit den Ergebnissen veröffentlicht.)"
           v-model="answers.q_open_feedback" :rows="6" />
 
         <!-- Email notification opt-in -->
