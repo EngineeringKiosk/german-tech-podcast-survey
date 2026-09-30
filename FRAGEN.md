@@ -138,18 +138,27 @@
 **Welche deutschsprachigen Tech-Podcasts hörst du regelmäßig (mindestens eine Episode in den letzten 3 Monaten)?**  
 *(Mehrfachauswahl möglich)*
 
+- 0d - Zeroday
+- Apfelfunk
+- Auslegungssache - der c't-Datenschutz-Podcast
+- Autoweird
 - Binärgewitter
+- Bit-Rauschen - der Prozessor-Podcast von c't
 - Bits & Böses - Der Tech Crime Podcast
 - Bits und so
 - Breach FM
 - BuzzZoom
 - c't uplink
+- ((c3d2)) Pentaradio 24
 - Chaosradio
 - Click! Clack! Hack!
+- Co-Op Mode
 - Code Culture
 - Coding Buddies
 - Computer und Kommunikation (Deutschlandfunk)
 - Kernel und Kernobstat
+- Cybersecurity entschlüsselt
+- Das Duumvirat
 - DAS WAR SCHON KAPUTT
 - Data Science Deep Dive
 - Der GameDev Podcast
@@ -162,12 +171,13 @@
 - Female TechTalk
 - FOCUS ON: DevOps
 - Urlaub im Userspace
-- Frauen und Technik – mit Eckert und Wolfangel
 - Freakshow
 - Gamedev für die Platte - Der Unreal Podcast
 - GameDev nach Feierabend
 - GNU/Linux.ch
 - heise Developer: SoftwareArchitekTOUR
+- #heiseshow
+- Increase Cycle Time - Der JobRad® Development Podcast
 - Index out of bounds
 - INNOQ Podcast
 - ISMS X-Plain
@@ -196,13 +206,16 @@
 - Security-Insider
 - She Likes Tech
 - Silicon Weekly
+- SmartHütte
 - SoftwareArchitekTOUR - von Entwicklern für Entwickler
 - SoftwareArchitektur im Stream
 - SoftwerkerCast
 - t3n Interview
 - t3n MeisterPrompter
+- Technik Tales
 - TechnikTechnik
 - The World of IT-Security
+- They Talk Tech – mit Eckert und Wolfangel
 - ThinkPad-Museum Podcast
 - TILpod
 - todo:cast
