@@ -179,7 +179,9 @@
 - Increase Cycle Time - Der JobRad® Development Podcast
 - Index out of bounds
 - INNOQ Podcast
+- Irgendwas mit IT
 - ISMS X-Plain
+- IT ImPuls
 - IT ist alles
 - IT-Berufe Podcast
 - IT@DB
@@ -219,6 +221,7 @@
 - TILpod
 - todo:cast
 - TR Podcast
+- Unbürokratisch
 - Unmute IT
 - Wartungsfenster
 - Web & Design Podcast
