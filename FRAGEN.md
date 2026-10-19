@@ -156,9 +156,8 @@
 - Code Culture
 - Coding Buddies
 - Computer und Kommunikation (Deutschlandfunk)
-- Kernel und Kernobstat
+- Kernel und Kernobst
 - Cybersecurity entschlüsselt
-- Das Duumvirat
 - DAS WAR SCHON KAPUTT
 - Data Science Deep Dive
 - Der GameDev Podcast
